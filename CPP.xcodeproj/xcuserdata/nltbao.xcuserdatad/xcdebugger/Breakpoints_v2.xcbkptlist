@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "A3E8B43F-C8FA-44E9-89B9-43F05CB990E1"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0123CFDD-B3C1-47CD-9D5E-A0FB3B1CB8E5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CPP/Snake.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
+            landmarkName = "Snake::addHead(x, y, direction)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "45B1CD43-9828-40FB-B4F9-8B4A575691EE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CPP/Bullet.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "5"
+            endingLineNumber = "5"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  uuid = "45B1CD43-9828-40FB-B4F9-8B4A575691EE - 45b50ef8418b9271"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Bullet::Bullet(char const*, int, int, int, int)"
+                  moduleName = "CPP"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nltbao/Desktop/nvim/cpp/FirstGame/CPP/Bullet.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "26">
+               </Location>
+               <Location
+                  uuid = "45B1CD43-9828-40FB-B4F9-8B4A575691EE - 45b50ef8418b923f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Bullet::Bullet(char const*, int, int, int, int)"
+                  moduleName = "CPP"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nltbao/Desktop/nvim/cpp/FirstGame/CPP/Bullet.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "34">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "39AC291E-EBFC-4467-B9D6-E5C0107575E9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CPP/Bullet.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "Bullet::Bullet(file_name, bulletX, bulletY, bulletWidth, bulletHeight, m_speedX, m_speedY)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "39AC291E-EBFC-4467-B9D6-E5C0107575E9 - 45b50ef8418b9271"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Bullet::Bullet(char const*, int, int, int, int)"
+                  moduleName = "CPP"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nltbao/Desktop/nvim/cpp/FirstGame/CPP/Bullet.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "26">
+               </Location>
+               <Location
+                  uuid = "39AC291E-EBFC-4467-B9D6-E5C0107575E9 - 45b50ef8418b923f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Bullet::Bullet(char const*, int, int, int, int)"
+                  moduleName = "CPP"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nltbao/Desktop/nvim/cpp/FirstGame/CPP/Bullet.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "34">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
