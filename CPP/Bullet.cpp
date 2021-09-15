@@ -55,3 +55,12 @@ bool Bullet::bCollisionObject(const int bulletX, const int bulletY)
     }
     return false;
 }
+
+//void Bullet::init() override {
+//}
+//
+//void Bullet::update() override {
+//}
+//
+//void Bullet::draw() override {
+//}

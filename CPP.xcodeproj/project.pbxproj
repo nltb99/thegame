@@ -75,6 +75,7 @@
 		BC39BCC426EDFFFC0084BD53 /* Obstacle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Obstacle.cpp; sourceTree = "<group>"; };
 		BC39BCC526EDFFFC0084BD53 /* Obstacle.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Obstacle.hpp; sourceTree = "<group>"; };
 		BC3B6BDA26B72AD20075123C /* CPP */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CPP; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCCECAEC26F19BA8002C5AFE /* Component.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Component.hpp; sourceTree = "<group>"; };
 		BCE3F38D26EC7112000FE76B /* Bullet.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Bullet.cpp; sourceTree = "<group>"; };
 		BCE3F38E26EC7112000FE76B /* Bullet.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Bullet.hpp; sourceTree = "<group>"; };
 		BCF87B5126EA159800931C46 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -150,6 +151,7 @@
 				BCE3F38E26EC7112000FE76B /* Bullet.hpp */,
 				BC39BCC426EDFFFC0084BD53 /* Obstacle.cpp */,
 				BC39BCC526EDFFFC0084BD53 /* Obstacle.hpp */,
+				BCCECAEC26F19BA8002C5AFE /* Component.hpp */,
 			);
 			path = CPP;
 			sourceTree = "<group>";

@@ -11,8 +11,10 @@
 
 #include <stdio.h>
 #include "GlobalHeader.h"
+#include "Component.hpp"
 
 class Bullet
+//: public Component
 {
 public:
     Bullet(const char* file_name, const int bulletX, const int bulletY, const int bulletWidth, const int bulletHeight, const int m_speedX, const int m_speedY);
@@ -24,7 +26,7 @@ public:
     
     void on_move(size_t index);
     bool bCollisionObject(const int bulletX, const int bulletY);
-
+    
 private:
     int m_speedX, m_speedY;
     int bulletWidth, bulletHeight;
