@@ -22,21 +22,21 @@ Bullet::~Bullet()
 {
 }
 
-void Bullet::on_move(size_t index)
+void Bullet::update(size_t index)
 {
     if(
        bulletRect.x > Game::SCREEN_WIDTH ||
        bulletRect.y > Game::SCREEN_HEIGHT ||
-       this->bCollisionObject(bulletRect.x, bulletRect.y)
+       this->bCollision(bulletRect.x, bulletRect.y)
        ){
         Player::bullet_bucket.erase(Player::bullet_bucket.begin() + index);
     }
     bulletRect.x += m_speedX;
     bulletRect.y += m_speedY;
-    
 }
 
-bool Bullet::bCollisionObject(const int bulletX, const int bulletY)
+
+bool Bullet::bCollision(const int bulletX, const int bulletY)
 {
     for(size_t i = 0; i < Game::obstable_bucket.size(); ++i){
         float objectX = Game::obstable_bucket[i].obstacleRect.x;
@@ -55,12 +55,3 @@ bool Bullet::bCollisionObject(const int bulletX, const int bulletY)
     }
     return false;
 }
-
-//void Bullet::init() override {
-//}
-//
-//void Bullet::update() override {
-//}
-//
-//void Bullet::draw() override {
-//}

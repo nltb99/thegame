@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BC39BCC626EDFFFC0084BD53 /* Obstacle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC39BCC426EDFFFC0084BD53 /* Obstacle.cpp */; };
+		BCCAAA3D26F1F7DA00BDF1B4 /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCCAAA3B26F1F7DA00BDF1B4 /* Map.cpp */; };
 		BCE3F38F26EC7112000FE76B /* Bullet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCE3F38D26EC7112000FE76B /* Bullet.cpp */; };
 		BCF87B5826EA159800931C46 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCF87B5126EA159800931C46 /* main.cpp */; };
 		BCF87B5926EA159800931C46 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCF87B5326EA159800931C46 /* Game.cpp */; };
@@ -75,6 +76,8 @@
 		BC39BCC426EDFFFC0084BD53 /* Obstacle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Obstacle.cpp; sourceTree = "<group>"; };
 		BC39BCC526EDFFFC0084BD53 /* Obstacle.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Obstacle.hpp; sourceTree = "<group>"; };
 		BC3B6BDA26B72AD20075123C /* CPP */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CPP; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCCAAA3B26F1F7DA00BDF1B4 /* Map.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Map.cpp; sourceTree = "<group>"; };
+		BCCAAA3C26F1F7DA00BDF1B4 /* Map.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Map.hpp; sourceTree = "<group>"; };
 		BCCECAEC26F19BA8002C5AFE /* Component.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Component.hpp; sourceTree = "<group>"; };
 		BCE3F38D26EC7112000FE76B /* Bullet.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Bullet.cpp; sourceTree = "<group>"; };
 		BCE3F38E26EC7112000FE76B /* Bullet.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Bullet.hpp; sourceTree = "<group>"; };
@@ -152,6 +155,8 @@
 				BC39BCC426EDFFFC0084BD53 /* Obstacle.cpp */,
 				BC39BCC526EDFFFC0084BD53 /* Obstacle.hpp */,
 				BCCECAEC26F19BA8002C5AFE /* Component.hpp */,
+				BCCAAA3B26F1F7DA00BDF1B4 /* Map.cpp */,
+				BCCAAA3C26F1F7DA00BDF1B4 /* Map.hpp */,
 			);
 			path = CPP;
 			sourceTree = "<group>";
@@ -259,6 +264,7 @@
 				BCF87B5826EA159800931C46 /* main.cpp in Sources */,
 				BCF87B5926EA159800931C46 /* Game.cpp in Sources */,
 				BCF87B5A26EA159800931C46 /* Player.cpp in Sources */,
+				BCCAAA3D26F1F7DA00BDF1B4 /* Map.cpp in Sources */,
 				BC39BCC626EDFFFC0084BD53 /* Obstacle.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -26,7 +26,7 @@ Player::~Player()
 
 void Player::init()
 {
-    
+
 }
 
 void Player::move_up(const bool bRevert)
@@ -59,6 +59,7 @@ void Player::move_right(const bool bRevert)
 void Player::update_move()
 {
     g_playerRect.x += velocityX;
+    velocityY = 0;
     
     // JUMP
     Player::on_jump();
@@ -68,7 +69,7 @@ void Player::update_move()
     if(
        (g_playerRect.x < 0) ||
        (g_playerRect.x + PLAYER_WIDTH > Game::SCREEN_WIDTH)||
-       this->bCollisionObject(g_playerRect.x, g_playerRect.y)
+       this->bCollision(g_playerRect.x, g_playerRect.y)
        )
     {
        g_playerRect.x -= velocityX;
@@ -81,8 +82,6 @@ void Player::update_move()
     {
        g_playerRect.y -= velocityY;
     }
-    
-    velocityY = 0;
 }
 
 void Player::on_start_jump()
@@ -109,7 +108,7 @@ void Player::on_jump()
 void Player::on_fall()
 {
     if(jump_status == 2){
-        if(this->bCollisionObject(g_playerRect.x, g_playerRect.y + abs(jumpStep))){
+        if(this->bCollision(g_playerRect.x, g_playerRect.y + abs(jumpStep))){
             g_playerRect.y += m_pPlayerCollision.y - PLAYER_HEIGHT - (g_playerRect.y + velocityY);
             jump_status = 0;
         } else{
@@ -125,7 +124,7 @@ void Player::on_fall()
         }
 
     } else if(jump_status == 0){
-        if(!this->bCollisionObject(g_playerRect.x, g_playerRect.y + G_MOVE_SPEED)){
+        if(!this->bCollision(g_playerRect.x, g_playerRect.y + G_MOVE_SPEED)){
             g_playerRect.y += G_MOVE_SPEED * G_MOVE_SPEED * 0.8;
         }
     }
@@ -154,7 +153,7 @@ void Player::on_short()
     bullet_bucket.emplace_back(*bullet);
 }
 
-bool Player::bCollisionObject(const int playerX, const int playerY)
+bool Player::bCollision(const int playerX, const int playerY)
 {
     for(size_t i = 0; i < Game::obstable_bucket.size(); ++i){
         float objectX = Game::obstable_bucket[i].obstacleRect.x;
@@ -174,4 +173,18 @@ bool Player::bCollisionObject(const int playerX, const int playerY)
         }
     }
     return false;
+}
+
+void Player::update_bullet()
+{
+    for(int i = 0; i < bullet_bucket.size(); ++i){
+        bullet_bucket[i].update(i);
+    }
+}
+
+void Player::draw_bullet()
+{
+    for(size_t i = 0; i < bullet_bucket.size(); ++i){
+        SDL_RenderCopy(Game::renderer, Bullet::b_pBulletTexture, NULL, &bullet_bucket[i].bulletRect);
+    }
 }

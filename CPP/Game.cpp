@@ -91,9 +91,7 @@ void Game::handleEvents()
 void Game::update()
 {
     player->update_move();
-    for(int i = 0; i < Player::bullet_bucket.size(); ++i){
-        Player::bullet_bucket[i].on_move(i);
-    }
+    player->update_bullet();
 };
 
 void Game::render()
@@ -101,9 +99,7 @@ void Game::render()
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
     SDL_RenderClear(renderer);
     
-    for(size_t i = 0; i < Player::bullet_bucket.size(); ++i){
-        SDL_RenderCopy(renderer, Bullet::b_pBulletTexture, NULL, &Player::bullet_bucket[i].bulletRect);
-    }
+    player->draw_bullet();
     
     for(size_t i = 0; i < obstable_bucket.size(); ++i){
         obstable_bucket[i].draw_obstacle();

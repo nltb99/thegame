@@ -11,10 +11,8 @@
 
 #include <stdio.h>
 #include "GlobalHeader.h"
-#include "Component.hpp"
 
 class Bullet
-//: public Component
 {
 public:
     Bullet(const char* file_name, const int bulletX, const int bulletY, const int bulletWidth, const int bulletHeight, const int m_speedX, const int m_speedY);
@@ -24,8 +22,8 @@ public:
     SDL_Rect bulletRect;
     static const int G_SPEED_BULLET = 15;
     
-    void on_move(size_t index);
-    bool bCollisionObject(const int bulletX, const int bulletY);
+    void update(size_t index);
+    bool bCollision(const int bulletX, const int bulletY);
     
 private:
     int m_speedX, m_speedY;

@@ -49,8 +49,10 @@ public:
     void on_jump();
     void on_fall();
     void on_short();
-    bool bCollisionObject(const int playerX, const int playerY);
+    bool bCollision(const int playerX, const int playerY);
     
+    void update_bullet();
+    void draw_bullet();
 private:
     float velocityX = 0;
     float velocityY = 0;
