@@ -9,24 +9,49 @@
 #include "Texture.hpp"
 #include "Game.hpp"
 
-SDL_Texture* Player::b_pPlayerTexture;
+std::vector<Bullet> Player::g_vBullet_bucket;
 
-std::vector<Bullet> Player::bullet_bucket;
-
-Player::Player()
-: g_playerRect({ 200, 100, PLAYER_WIDTH, PLAYER_HEIGHT})
+Player::Player(const char* file_name, const int PLAYER_X, const int PLAYER_Y, const int PLAYER_WIDTH, const int PLAYER_HEIGHT)
+: PLAYER_WIDTH(PLAYER_WIDTH), PLAYER_HEIGHT(PLAYER_HEIGHT)
 {
-    b_pPlayerTexture = Texture::LoadTexture("d1.png");
+    b_pPlayerTexture = Texture::LoadTexture(file_name);
+    g_playerRect = { PLAYER_X, PLAYER_Y, PLAYER_WIDTH, PLAYER_HEIGHT };
 }
 
 Player::~Player()
 {
-    
+    g_vBullet_bucket.clear();
 }
 
-void Player::init()
-{
+void Player::update()  {
+    g_playerRect.x += velocityX;
+    velocityY = 0;
+    
+    // JUMP
+    Player::on_jump();
+    Player::on_fall();
+    
+    // BOUNDARIES
+    if(
+       (g_playerRect.x < 0) ||
+       (g_playerRect.x + PLAYER_WIDTH > Game::SCREEN_WIDTH)||
+       this->bCollision(g_playerRect.x, g_playerRect.y)
+       )
+    {
+       g_playerRect.x -= velocityX;
+    }
+    
+    if(
+       (g_playerRect.y < 0) ||
+       (g_playerRect.y + PLAYER_HEIGHT > Game::SCREEN_HEIGHT) ||
+       (g_playerRect.y > GROUND_HEIGHT))
+    {
+       g_playerRect.y -= velocityY;
+    }
+}
 
+void Player::draw()  {
+    SDL_RenderCopy(Game::renderer, b_pPlayerTexture, NULL, &g_playerRect);
 }
 
 void Player::move_up(const bool bRevert)
@@ -52,35 +77,6 @@ void Player::move_right(const bool bRevert)
     velocityX += G_MOVE_SPEED;
     if(!bRevert){
         g_lastDirection = DIRECTION.RIGHT;
-    }
-}
-
-
-void Player::update_move()
-{
-    g_playerRect.x += velocityX;
-    velocityY = 0;
-    
-    // JUMP
-    Player::on_jump();
-    Player::on_fall();
-    
-    // BOUNDARIES
-    if(
-       (g_playerRect.x < 0) ||
-       (g_playerRect.x + PLAYER_WIDTH > Game::SCREEN_WIDTH)||
-       this->bCollision(g_playerRect.x, g_playerRect.y)
-       )
-    {
-       g_playerRect.x -= velocityX;
-    }
-    
-    if(
-       (g_playerRect.y < 0) ||
-       (g_playerRect.y + PLAYER_HEIGHT > Game::SCREEN_HEIGHT) ||
-       (g_playerRect.y > GROUND_HEIGHT))
-    {
-       g_playerRect.y -= velocityY;
     }
 }
 
@@ -148,18 +144,18 @@ void Player::on_short()
     
     std::unique_ptr<Bullet> bullet = std::make_unique<Bullet>
     (
-     "d1.png", posX, posY, 20, 20, speedX, speedY
+     "assets/imgs/d1.png", posX, posY, 20, 20, speedX, speedY
     );
-    bullet_bucket.emplace_back(*bullet);
+    g_vBullet_bucket.emplace_back(*bullet);
 }
 
 bool Player::bCollision(const int playerX, const int playerY)
 {
-    for(size_t i = 0; i < Game::obstable_bucket.size(); ++i){
-        float objectX = Game::obstable_bucket[i].obstacleRect.x;
-        float objectY = Game::obstable_bucket[i].obstacleRect.y;
-        float objectWidth = Game::obstable_bucket[i].obstacleRect.w;
-        float objectHeight = Game::obstable_bucket[i].obstacleRect.h;
+    for(size_t i = 0; i < Game::g_vObstacle_bucket.size(); ++i){
+        float objectX = Game::g_vObstacle_bucket[i].obstacleRect.x;
+        float objectY = Game::g_vObstacle_bucket[i].obstacleRect.y;
+        float objectWidth = Game::g_vObstacle_bucket[i].obstacleRect.w;
+        float objectHeight = Game::g_vObstacle_bucket[i].obstacleRect.h;
         
         if(
            (playerX >= objectX - PLAYER_WIDTH + 1 &&
@@ -168,7 +164,7 @@ bool Player::bCollision(const int playerX, const int playerY)
             playerY <= objectY + objectHeight - 1 ) ||
            (playerY > GROUND_HEIGHT)
            ){
-            m_pPlayerCollision = Game::obstable_bucket[i].obstacleRect;
+            m_pPlayerCollision = Game::g_vObstacle_bucket[i].obstacleRect;
             return true;
         }
     }
@@ -177,14 +173,17 @@ bool Player::bCollision(const int playerX, const int playerY)
 
 void Player::update_bullet()
 {
-    for(int i = 0; i < bullet_bucket.size(); ++i){
-        bullet_bucket[i].update(i);
+    for(int i = 0; i < g_vBullet_bucket.size(); ++i){
+        g_vBullet_bucket[i].update(i);
     }
 }
 
 void Player::draw_bullet()
 {
-    for(size_t i = 0; i < bullet_bucket.size(); ++i){
-        SDL_RenderCopy(Game::renderer, Bullet::b_pBulletTexture, NULL, &bullet_bucket[i].bulletRect);
+    for(size_t i = 0; i < g_vBullet_bucket.size(); ++i){
+        SDL_RenderCopy(Game::renderer, Bullet::b_pBulletTexture, NULL, &g_vBullet_bucket[i].bulletRect);
     }
 }
+
+
+

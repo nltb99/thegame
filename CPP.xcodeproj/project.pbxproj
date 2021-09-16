@@ -7,24 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BC39BCC626EDFFFC0084BD53 /* Obstacle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC39BCC426EDFFFC0084BD53 /* Obstacle.cpp */; };
-		BCCAAA3D26F1F7DA00BDF1B4 /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCCAAA3B26F1F7DA00BDF1B4 /* Map.cpp */; };
-		BCE3F38F26EC7112000FE76B /* Bullet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCE3F38D26EC7112000FE76B /* Bullet.cpp */; };
-		BCF87B5826EA159800931C46 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCF87B5126EA159800931C46 /* main.cpp */; };
-		BCF87B5926EA159800931C46 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCF87B5326EA159800931C46 /* Game.cpp */; };
-		BCF87B5A26EA159800931C46 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCF87B5526EA159800931C46 /* Player.cpp */; };
-		BCF87B8126EA1C3E00931C46 /* SDL2_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF87B7A26EA1BD800931C46 /* SDL2_image.framework */; };
-		BCF87B8226EA1C3E00931C46 /* SDL2_image.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BCF87B7A26EA1BD800931C46 /* SDL2_image.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		BCF87B8326EA1C3F00931C46 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF87B7B26EA1BD800931C46 /* SDL2.framework */; };
-		BCF87B8426EA1C3F00931C46 /* SDL2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BCF87B7B26EA1BD800931C46 /* SDL2.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		BCF87B8526EA1C6F00931C46 /* d1.png in Sources */ = {isa = PBXBuildFile; fileRef = BCF87B5726EA159800931C46 /* d1.png */; };
+		BC346E0626F3242000E77453 /* SDL2_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC346DEA26F31F7300E77453 /* SDL2_image.framework */; };
+		BC346E0926F3242300E77453 /* SDL2_mixer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC346DE926F31F7300E77453 /* SDL2_mixer.framework */; };
+		BC346E0B26F3242400E77453 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC346DE826F31F7300E77453 /* SDL2.framework */; };
+		BC346E0E26F324A800E77453 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCF87B5326EA159800931C46 /* Game.cpp */; };
+		BC346E0F26F324A800E77453 /* assets in Sources */ = {isa = PBXBuildFile; fileRef = BC346E0D26F3248D00E77453 /* assets */; };
+		BC346E1026F324A800E77453 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCF87B5126EA159800931C46 /* main.cpp */; };
+		BC346E1126F324A800E77453 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCF87B5526EA159800931C46 /* Player.cpp */; };
+		BC346E1226F324A800E77453 /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCF87B9826EA382300931C46 /* Texture.cpp */; };
+		BC346E1326F324A800E77453 /* Bullet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCE3F38D26EC7112000FE76B /* Bullet.cpp */; };
+		BC346E1426F324A800E77453 /* Obstacle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC39BCC426EDFFFC0084BD53 /* Obstacle.cpp */; };
+		BC346E1526F324A800E77453 /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCCAAA3B26F1F7DA00BDF1B4 /* Map.cpp */; };
+		BC346E1626F324A800E77453 /* Music.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCCAAA4626F220A900BDF1B4 /* Music.cpp */; };
 		BCF87B8D26EA1C7F00931C46 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCF87B8C26EA1C7F00931C46 /* main.cpp */; };
-		BCF87B9126EA1CAA00931C46 /* SDL2_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF87B7A26EA1BD800931C46 /* SDL2_image.framework */; };
-		BCF87B9226EA1CAA00931C46 /* SDL2_image.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BCF87B7A26EA1BD800931C46 /* SDL2_image.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		BCF87B9326EA1CAA00931C46 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF87B7B26EA1BD800931C46 /* SDL2.framework */; };
-		BCF87B9426EA1CAA00931C46 /* SDL2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BCF87B7B26EA1BD800931C46 /* SDL2.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		BCF87B9626EA1CC800931C46 /* d1.png in Sources */ = {isa = PBXBuildFile; fileRef = BCF87B5726EA159800931C46 /* d1.png */; };
-		BCF87B9A26EA382300931C46 /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCF87B9826EA382300931C46 /* Texture.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,18 +30,6 @@
 			dstSubfolderSpec = 7;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
-		BCF87B8026EA1BD800931C46 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 8;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				BCF87B8226EA1C3E00931C46 /* SDL2_image.framework in Embed Frameworks */,
-				BCF87B8426EA1C3F00931C46 /* SDL2.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 1;
 		};
 		BCF87B8826EA1C7F00931C46 /* CopyFiles */ = {
@@ -64,8 +47,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				BCF87B9226EA1CAA00931C46 /* SDL2_image.framework in Embed Frameworks */,
-				BCF87B9426EA1CAA00931C46 /* SDL2.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,11 +54,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BC346DE826F31F7300E77453 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = CPP/libs/SDL2.framework; sourceTree = "<group>"; };
+		BC346DE926F31F7300E77453 /* SDL2_mixer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_mixer.framework; path = CPP/libs/SDL2_mixer.framework; sourceTree = "<group>"; };
+		BC346DEA26F31F7300E77453 /* SDL2_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_image.framework; path = CPP/libs/SDL2_image.framework; sourceTree = "<group>"; };
+		BC346E0D26F3248D00E77453 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
 		BC39BCC426EDFFFC0084BD53 /* Obstacle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Obstacle.cpp; sourceTree = "<group>"; };
 		BC39BCC526EDFFFC0084BD53 /* Obstacle.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Obstacle.hpp; sourceTree = "<group>"; };
 		BC3B6BDA26B72AD20075123C /* CPP */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CPP; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCCAAA3B26F1F7DA00BDF1B4 /* Map.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Map.cpp; sourceTree = "<group>"; };
 		BCCAAA3C26F1F7DA00BDF1B4 /* Map.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Map.hpp; sourceTree = "<group>"; };
+		BCCAAA4426F2207100BDF1B4 /* shot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shot.wav; sourceTree = "<group>"; };
+		BCCAAA4626F220A900BDF1B4 /* Music.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Music.cpp; sourceTree = "<group>"; };
+		BCCAAA4726F220A900BDF1B4 /* Music.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Music.hpp; sourceTree = "<group>"; };
 		BCCECAEC26F19BA8002C5AFE /* Component.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Component.hpp; sourceTree = "<group>"; };
 		BCE3F38D26EC7112000FE76B /* Bullet.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Bullet.cpp; sourceTree = "<group>"; };
 		BCE3F38E26EC7112000FE76B /* Bullet.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Bullet.hpp; sourceTree = "<group>"; };
@@ -87,9 +75,6 @@
 		BCF87B5426EA159800931C46 /* Game.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Game.hpp; sourceTree = "<group>"; };
 		BCF87B5526EA159800931C46 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
 		BCF87B5626EA159800931C46 /* Player.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Player.hpp; sourceTree = "<group>"; };
-		BCF87B5726EA159800931C46 /* d1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d1.png; sourceTree = "<group>"; };
-		BCF87B7A26EA1BD800931C46 /* SDL2_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_image.framework; path = ../../../../../../Library/Frameworks/SDL2_image.framework; sourceTree = "<group>"; };
-		BCF87B7B26EA1BD800931C46 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
 		BCF87B8A26EA1C7F00931C46 /* Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Test; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCF87B8C26EA1C7F00931C46 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		BCF87B9726EA1D1C00931C46 /* Test.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Test.entitlements; sourceTree = "<group>"; };
@@ -102,8 +87,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCF87B8126EA1C3E00931C46 /* SDL2_image.framework in Frameworks */,
-				BCF87B8326EA1C3F00931C46 /* SDL2.framework in Frameworks */,
+				BC346E0B26F3242400E77453 /* SDL2.framework in Frameworks */,
+				BC346E0926F3242300E77453 /* SDL2_mixer.framework in Frameworks */,
+				BC346E0626F3242000E77453 /* SDL2_image.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,8 +97,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCF87B9126EA1CAA00931C46 /* SDL2_image.framework in Frameworks */,
-				BCF87B9326EA1CAA00931C46 /* SDL2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,11 +125,12 @@
 		BC3B6BDC26B72AD20075123C /* CPP */ = {
 			isa = PBXGroup;
 			children = (
-				BCF87B5726EA159800931C46 /* d1.png */,
 				BCF87B5326EA159800931C46 /* Game.cpp */,
 				BCF87B5426EA159800931C46 /* Game.hpp */,
 				BCF87B5226EA159800931C46 /* GlobalHeader.h */,
+				BC346E0D26F3248D00E77453 /* assets */,
 				BCF87B5126EA159800931C46 /* main.cpp */,
+				BCCAAA4426F2207100BDF1B4 /* shot.wav */,
 				BCF87B5526EA159800931C46 /* Player.cpp */,
 				BCF87B5626EA159800931C46 /* Player.hpp */,
 				BCF87B9826EA382300931C46 /* Texture.cpp */,
@@ -157,6 +142,8 @@
 				BCCECAEC26F19BA8002C5AFE /* Component.hpp */,
 				BCCAAA3B26F1F7DA00BDF1B4 /* Map.cpp */,
 				BCCAAA3C26F1F7DA00BDF1B4 /* Map.hpp */,
+				BCCAAA4626F220A900BDF1B4 /* Music.cpp */,
+				BCCAAA4726F220A900BDF1B4 /* Music.hpp */,
 			);
 			path = CPP;
 			sourceTree = "<group>";
@@ -164,8 +151,9 @@
 		BCBF780826B7D32700C4D124 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BCF87B7A26EA1BD800931C46 /* SDL2_image.framework */,
-				BCF87B7B26EA1BD800931C46 /* SDL2.framework */,
+				BC346DEA26F31F7300E77453 /* SDL2_image.framework */,
+				BC346DE926F31F7300E77453 /* SDL2_mixer.framework */,
+				BC346DE826F31F7300E77453 /* SDL2.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -189,7 +177,6 @@
 				BC3B6BD626B72AD20075123C /* Sources */,
 				BC3B6BD726B72AD20075123C /* Frameworks */,
 				BC3B6BD826B72AD20075123C /* CopyFiles */,
-				BCF87B8026EA1BD800931C46 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -258,14 +245,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCF87B9A26EA382300931C46 /* Texture.cpp in Sources */,
-				BCE3F38F26EC7112000FE76B /* Bullet.cpp in Sources */,
-				BCF87B8526EA1C6F00931C46 /* d1.png in Sources */,
-				BCF87B5826EA159800931C46 /* main.cpp in Sources */,
-				BCF87B5926EA159800931C46 /* Game.cpp in Sources */,
-				BCF87B5A26EA159800931C46 /* Player.cpp in Sources */,
-				BCCAAA3D26F1F7DA00BDF1B4 /* Map.cpp in Sources */,
-				BC39BCC626EDFFFC0084BD53 /* Obstacle.cpp in Sources */,
+				BC346E0E26F324A800E77453 /* Game.cpp in Sources */,
+				BC346E0F26F324A800E77453 /* assets in Sources */,
+				BC346E1026F324A800E77453 /* main.cpp in Sources */,
+				BC346E1126F324A800E77453 /* Player.cpp in Sources */,
+				BC346E1226F324A800E77453 /* Texture.cpp in Sources */,
+				BC346E1326F324A800E77453 /* Bullet.cpp in Sources */,
+				BC346E1426F324A800E77453 /* Obstacle.cpp in Sources */,
+				BC346E1526F324A800E77453 /* Map.cpp in Sources */,
+				BC346E1626F324A800E77453 /* Music.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,7 +261,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCF87B9626EA1CC800931C46 /* d1.png in Sources */,
 				BCF87B8D26EA1C7F00931C46 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,7 +305,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = "";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Test/libs/**";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -339,9 +326,11 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CODE_SIGN_FLAGS = "--deep";
 				SDKROOT = macosx;
 				SYSTEM_FRAMEWORK_SEARCH_PATHS = "";
 				SYSTEM_HEADER_SEARCH_PATHS = "";
+				USE_HEADERMAP = YES;
 			};
 			name = Debug;
 		};
@@ -382,7 +371,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = "";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Test/libs/**";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -396,24 +385,34 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_CODE_SIGN_FLAGS = "--deep";
 				SDKROOT = macosx;
 				SYSTEM_FRAMEWORK_SEARCH_PATHS = "";
 				SYSTEM_HEADER_SEARCH_PATHS = "";
+				USE_HEADERMAP = YES;
 			};
 			name = Release;
 		};
 		BC3B6BE226B72AD20075123C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "";
-				FRAMEWORK_SEARCH_PATHS = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				DEVELOPMENT_TEAM = 7ZHQZR3FTK;
+				EXCLUDED_ARCHS = arm64;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/CPP/libs/**",
+					"$(inherited)/**",
+					"$(PROJECT_DIR)/CPP/libs",
+				);
 				HEADER_SEARCH_PATHS = "";
 				INCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "";
 				LIBRARY_SEARCH_PATHS = "";
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				OTHER_CODE_SIGN_FLAGS = "--deep";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REZ_SEARCH_PATHS = "";
@@ -426,15 +425,23 @@
 		BC3B6BE326B72AD20075123C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "";
-				FRAMEWORK_SEARCH_PATHS = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				DEVELOPMENT_TEAM = 7ZHQZR3FTK;
+				EXCLUDED_ARCHS = arm64;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/CPP/libs/**",
+					"$(inherited)/**",
+					"$(PROJECT_DIR)/CPP/libs",
+				);
 				HEADER_SEARCH_PATHS = "";
 				INCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "";
 				LIBRARY_SEARCH_PATHS = "";
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				OTHER_CODE_SIGN_FLAGS = "--deep";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REZ_SEARCH_PATHS = "";

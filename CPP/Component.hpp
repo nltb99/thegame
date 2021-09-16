@@ -11,6 +11,10 @@
 
 class Component {
 public:
+    virtual ~Component() = default;
+    virtual void init() {}
+    virtual void update() {}
+    virtual void draw() {}
 
 };
 #endif /* Component_h */

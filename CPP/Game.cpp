@@ -10,16 +10,22 @@
 #include "Player.hpp"
 #include "Texture.hpp"
 #include "Obstacle.hpp"
+#include "Music.hpp"
 
 SDL_Renderer* Game::renderer = nullptr;
-std::pair<int, int> Game::globalMap[TOTAL_CELL][TOTAL_CELL];
 
 std::unique_ptr<Player> player = nullptr;
-std::vector<Obstacle> Game::obstable_bucket;
+std::vector<Obstacle> Game::g_vObstacle_bucket;
+std::unique_ptr<Music> music = nullptr;
 
-Game::Game(){
+Game::Game()
+{
 }
-Game::~Game(){}
+
+Game::~Game()
+{
+    g_vObstacle_bucket.clear();
+}
 
 void Game::init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen)
 {
@@ -31,14 +37,16 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
         window = SDL_CreateWindow(title, xpos, ypos, width, height, flags);
         renderer = SDL_CreateRenderer(window, -1, 0);
         
-        player = std::make_unique<Player>();
+        player = std::make_unique<Player>("assets/imgs/d1.png", 200, 100, 50, 50);
+        music = std::make_unique<Music>();
         
-        obstable_bucket.push_back(*std::make_unique<Obstacle>(400, 450, 150, 300));
-        obstable_bucket.push_back(*std::make_unique<Obstacle>(650, 350, 150, 400));
+        g_vObstacle_bucket.push_back(*std::make_unique<Obstacle>(400, 450, 150, 300));
+        g_vObstacle_bucket.push_back(*std::make_unique<Obstacle>(650, 350, 150, 400));
         
         g_bRunning = true;
     } else{
         g_bRunning = false;
+        std::cout << SDL_GetError() << std::endl;
     }
 }
 
@@ -64,6 +72,7 @@ void Game::handleEvents()
                     player->on_start_jump();
                     break;
                 case SDLK_c:
+                    music->playMusic(Music::cShot, 1);
                     player->on_short();
                     break;
             }
@@ -90,7 +99,7 @@ void Game::handleEvents()
 
 void Game::update()
 {
-    player->update_move();
+    player->update();
     player->update_bullet();
 };
 
@@ -101,11 +110,10 @@ void Game::render()
     
     player->draw_bullet();
     
-    for(size_t i = 0; i < obstable_bucket.size(); ++i){
-        obstable_bucket[i].draw_obstacle();
+    for(size_t i = 0; i < g_vObstacle_bucket.size(); ++i){
+        g_vObstacle_bucket[i].draw_obstacle();
     }
-
-    SDL_RenderCopy(renderer, Player::b_pPlayerTexture, NULL, &player->g_playerRect);
+    player->draw();
     
     SDL_RenderPresent(renderer);
 };
@@ -114,19 +122,7 @@ void Game::clean()
 {
     SDL_DestroyWindow(window);
     SDL_DestroyRenderer(renderer);
+    Mix_CloseAudio();
     SDL_Quit();
 };
-
-void Game::drawMapVisual()
-{
-    for(int i=0; i < Game::SCREEN_HEIGHT + Game::GRID_WIDTH; i += Game::GRID_WIDTH){
-        for(int j=0; j < Game::SCREEN_WIDTH + Game::GRID_WIDTH; j += Game::GRID_WIDTH){
-            SDL_SetRenderDrawColor(Game::renderer, 255, 255, 255, 255);
-            SDL_RenderDrawLine(Game::renderer, j, 0, j, Game::SCREEN_WIDTH);
-        }
-        SDL_SetRenderDrawColor(Game::renderer, 255, 255, 255, 255);
-        SDL_RenderDrawLine(Game::renderer, 0, i, Game::SCREEN_WIDTH, i);
-    }
-}
-
 

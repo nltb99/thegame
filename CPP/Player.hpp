@@ -15,13 +15,8 @@
 class Player
 {
 public:
-    Player();
+    Player(const char* file_name, const int PLAYER_X, const int PLAYER_Y, const int PLAYER_WIDTH, const int PLAYER_HEIGHT);
     ~Player();
-    
-    static const int PLAYER_WIDTH = 50;
-    static const int PLAYER_HEIGHT = 50;
-    static SDL_Texture* b_pPlayerTexture;
-    static std::vector<Bullet> bullet_bucket;
     
     struct DIRECTION {
         const int UP = 0;
@@ -29,6 +24,10 @@ public:
         const int LEFT = 2;
         const int RIGHT = 3;
     } DIRECTION;
+    
+    const int PLAYER_WIDTH, PLAYER_HEIGHT;
+    SDL_Texture* b_pPlayerTexture;
+    static std::vector<Bullet> g_vBullet_bucket;
     
     SDL_Rect g_playerRect, m_pPlayerCollision;
     int g_lastDirection = DIRECTION.RIGHT;
@@ -39,8 +38,9 @@ public:
     const int G_MOVE_SPEED = 5;
     const float GROUND_HEIGHT = 500;
     
-    void init();
-    void update_move();
+    void update();
+    void draw();
+    
     void move_left(const bool bRevert);
     void move_right(const bool bRevert);
     void move_up(const bool bRevert);
@@ -50,17 +50,15 @@ public:
     void on_fall();
     void on_short();
     bool bCollision(const int playerX, const int playerY);
-    
     void update_bullet();
     void draw_bullet();
+    
 private:
     float velocityX = 0;
     float velocityY = 0;
     
     float jumpStep;
     int jump_status = 0;
-    
-    
 
 };
 

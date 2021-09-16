@@ -13,9 +13,10 @@
 SDL_Texture* Bullet::b_pBulletTexture;
 
 Bullet::Bullet(const char* file_name, const int bulletX, const int bulletY, const int bulletWidth, const int bulletHeight, const int m_speedX, const int m_speedY)
-: bulletRect({bulletX, bulletY, bulletWidth, bulletHeight}), bulletWidth(bulletWidth), bulletHeight(bulletHeight), m_speedX(m_speedX), m_speedY(m_speedY)
+: bulletWidth(bulletWidth), bulletHeight(bulletHeight), m_speedX(m_speedX), m_speedY(m_speedY)
 {
     b_pBulletTexture = Texture::LoadTexture(file_name);
+    bulletRect = { bulletX, bulletY, bulletWidth, bulletHeight };
 }
 
 Bullet::~Bullet()
@@ -29,7 +30,7 @@ void Bullet::update(size_t index)
        bulletRect.y > Game::SCREEN_HEIGHT ||
        this->bCollision(bulletRect.x, bulletRect.y)
        ){
-        Player::bullet_bucket.erase(Player::bullet_bucket.begin() + index);
+        Player::g_vBullet_bucket.erase(Player::g_vBullet_bucket.begin() + index);
     }
     bulletRect.x += m_speedX;
     bulletRect.y += m_speedY;
@@ -38,11 +39,11 @@ void Bullet::update(size_t index)
 
 bool Bullet::bCollision(const int bulletX, const int bulletY)
 {
-    for(size_t i = 0; i < Game::obstable_bucket.size(); ++i){
-        float objectX = Game::obstable_bucket[i].obstacleRect.x;
-        float objectY = Game::obstable_bucket[i].obstacleRect.y;
-        float objectWidth = Game::obstable_bucket[i].obstacleRect.w;
-        float objectHeight = Game::obstable_bucket[i].obstacleRect.h;
+    for(size_t i = 0; i < Game::g_vObstacle_bucket.size(); ++i){
+        float objectX = Game::g_vObstacle_bucket[i].obstacleRect.x;
+        float objectY = Game::g_vObstacle_bucket[i].obstacleRect.y;
+        float objectWidth = Game::g_vObstacle_bucket[i].obstacleRect.w;
+        float objectHeight = Game::g_vObstacle_bucket[i].obstacleRect.h;
         
         if(
            bulletX >= objectX - bulletWidth + 1 &&

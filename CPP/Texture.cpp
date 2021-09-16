@@ -10,6 +10,9 @@
 
 SDL_Texture* Texture::LoadTexture(const char* file_name){
     SDL_Surface* tempSurface = IMG_Load(file_name);
+    if(!tempSurface){
+        std::cout << SDL_GetError() << std::endl;
+    }
     SDL_Texture* texture = SDL_CreateTextureFromSurface(Game::renderer, tempSurface);
     SDL_FreeSurface(tempSurface);
     return texture;

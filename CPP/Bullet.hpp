@@ -19,8 +19,8 @@ public:
     ~Bullet();
     
     static SDL_Texture* b_pBulletTexture;
-    SDL_Rect bulletRect;
     static const int G_SPEED_BULLET = 15;
+    SDL_Rect bulletRect;
     
     void update(size_t index);
     bool bCollision(const int bulletX, const int bulletY);
