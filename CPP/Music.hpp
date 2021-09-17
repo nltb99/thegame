@@ -21,7 +21,7 @@ public:
     std::map<int, Mix_Chunk*> g_vChunk;
     
     enum LIST_MUSIC {
-        cShot
+        chunkShot
     } ;
             
     void loadChunk(const int music_id, const char* file_name);

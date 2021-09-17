@@ -14,6 +14,7 @@
 class Texture {
 public:
     static SDL_Texture* LoadTexture(const char* file_name);
+    static void DrawTexture(SDL_Texture* texture, SDL_Rect* srcRect, SDL_Rect* desRect);
     
 private:
 };

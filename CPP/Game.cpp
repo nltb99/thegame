@@ -11,12 +11,14 @@
 #include "Texture.hpp"
 #include "Obstacle.hpp"
 #include "Music.hpp"
+#include "Sprite.hpp"
 
 SDL_Renderer* Game::renderer = nullptr;
 
 std::unique_ptr<Player> player = nullptr;
-std::vector<Obstacle> Game::g_vObstacle_bucket;
 std::unique_ptr<Music> music = nullptr;
+
+std::vector<Obstacle> Game::g_vObstacle_bucket;
 
 Game::Game()
 {
@@ -37,12 +39,22 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
         window = SDL_CreateWindow(title, xpos, ypos, width, height, flags);
         renderer = SDL_CreateRenderer(window, -1, 0);
         
-        player = std::make_unique<Player>("assets/imgs/d1.png", 200, 100, 50, 50);
         music = std::make_unique<Music>();
-        
+        player = std::make_unique<Player>("assets/imgs/player/Idle__000.png", 50, 100, 50, 100);
         g_vObstacle_bucket.push_back(*std::make_unique<Obstacle>(400, 450, 150, 300));
-        g_vObstacle_bucket.push_back(*std::make_unique<Obstacle>(650, 350, 150, 400));
+        g_vObstacle_bucket.push_back(*std::make_unique<Obstacle>(650, 350, 150, 1000));
         
+        Sprite::addSprite(1, "assets/imgs/player/Dead__000.png");
+        Sprite::addSprite(1, "assets/imgs/player/Dead__001.png");
+        Sprite::addSprite(1, "assets/imgs/player/Dead__002.png");
+        Sprite::addSprite(1, "assets/imgs/player/Dead__003.png");
+        Sprite::addSprite(1, "assets/imgs/player/Dead__004.png");
+        Sprite::addSprite(1, "assets/imgs/player/Dead__005.png");
+        Sprite::addSprite(1, "assets/imgs/player/Dead__006.png");
+        Sprite::addSprite(1, "assets/imgs/player/Dead__007.png");
+        Sprite::addSprite(1, "assets/imgs/player/Dead__008.png");
+        Sprite::addSprite(1, "assets/imgs/player/Dead__009.png");
+
         g_bRunning = true;
     } else{
         g_bRunning = false;
@@ -58,9 +70,11 @@ void Game::handleEvents()
             switch(event.key.keysym.sym) {
                 case SDLK_LEFT:
                     player->move_left(false);
+                    player->hold_left = true;
                     break;
                 case SDLK_RIGHT:
                     player->move_right(false);
+                    player->hold_right = true;
                     break;
                 case SDLK_DOWN:
                     player->move_down(false);
@@ -72,7 +86,7 @@ void Game::handleEvents()
                     player->on_start_jump();
                     break;
                 case SDLK_c:
-                    music->playMusic(Music::cShot, 1);
+                    music->playMusic(Music::chunkShot, 1);
                     player->on_short();
                     break;
             }
@@ -80,9 +94,11 @@ void Game::handleEvents()
             switch(event.key.keysym.sym) {
                 case SDLK_LEFT:
                     player->move_right(true);
+                    player->hold_left = false;
                     break;
                 case SDLK_RIGHT:
                     player->move_left(true);
+                    player->hold_right = false;
                     break;
                 case SDLK_DOWN:
                     player->move_up(true);

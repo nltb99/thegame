@@ -12,8 +12,8 @@ Music::Music()
     Mix_OpenAudio( MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, 2, 4096);
     Mix_VolumeMusic(100);
     
-    this->loadMusic(cShot, "assets/sounds/shot.wav");
-    this->loadChunk(cShot, "assets/sounds/shot.wav");
+    this->loadMusic(chunkShot, "assets/sounds/shot.wav");
+    this->loadChunk(chunkShot, "assets/sounds/shot.wav");
 }
 
 Music::~Music()

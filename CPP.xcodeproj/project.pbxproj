@@ -11,7 +11,6 @@
 		BC346E0926F3242300E77453 /* SDL2_mixer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC346DE926F31F7300E77453 /* SDL2_mixer.framework */; };
 		BC346E0B26F3242400E77453 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC346DE826F31F7300E77453 /* SDL2.framework */; };
 		BC346E0E26F324A800E77453 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCF87B5326EA159800931C46 /* Game.cpp */; };
-		BC346E0F26F324A800E77453 /* assets in Sources */ = {isa = PBXBuildFile; fileRef = BC346E0D26F3248D00E77453 /* assets */; };
 		BC346E1026F324A800E77453 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCF87B5126EA159800931C46 /* main.cpp */; };
 		BC346E1126F324A800E77453 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCF87B5526EA159800931C46 /* Player.cpp */; };
 		BC346E1226F324A800E77453 /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCF87B9826EA382300931C46 /* Texture.cpp */; };
@@ -19,6 +18,13 @@
 		BC346E1426F324A800E77453 /* Obstacle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC39BCC426EDFFFC0084BD53 /* Obstacle.cpp */; };
 		BC346E1526F324A800E77453 /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCCAAA3B26F1F7DA00BDF1B4 /* Map.cpp */; };
 		BC346E1626F324A800E77453 /* Music.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCCAAA4626F220A900BDF1B4 /* Music.cpp */; };
+		BC37333A26F4CC89006775EE /* SDL2_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC346DEA26F31F7300E77453 /* SDL2_image.framework */; };
+		BC37333B26F4CC89006775EE /* SDL2_image.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BC346DEA26F31F7300E77453 /* SDL2_image.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BC37333C26F4CC89006775EE /* SDL2_mixer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC346DE926F31F7300E77453 /* SDL2_mixer.framework */; };
+		BC37333D26F4CC89006775EE /* SDL2_mixer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BC346DE926F31F7300E77453 /* SDL2_mixer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BC37333E26F4CC89006775EE /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC346DE826F31F7300E77453 /* SDL2.framework */; };
+		BC37333F26F4CC89006775EE /* SDL2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BC346DE826F31F7300E77453 /* SDL2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BC37334926F4D93D006775EE /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC37334726F4D93D006775EE /* Sprite.cpp */; };
 		BCF87B8D26EA1C7F00931C46 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCF87B8C26EA1C7F00931C46 /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +53,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				BC37333F26F4CC89006775EE /* SDL2.framework in Embed Frameworks */,
+				BC37333B26F4CC89006775EE /* SDL2_image.framework in Embed Frameworks */,
+				BC37333D26F4CC89006775EE /* SDL2_mixer.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -57,13 +66,13 @@
 		BC346DE826F31F7300E77453 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = CPP/libs/SDL2.framework; sourceTree = "<group>"; };
 		BC346DE926F31F7300E77453 /* SDL2_mixer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_mixer.framework; path = CPP/libs/SDL2_mixer.framework; sourceTree = "<group>"; };
 		BC346DEA26F31F7300E77453 /* SDL2_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_image.framework; path = CPP/libs/SDL2_image.framework; sourceTree = "<group>"; };
-		BC346E0D26F3248D00E77453 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
+		BC37334726F4D93D006775EE /* Sprite.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Sprite.cpp; sourceTree = "<group>"; };
+		BC37334826F4D93D006775EE /* Sprite.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Sprite.hpp; sourceTree = "<group>"; };
 		BC39BCC426EDFFFC0084BD53 /* Obstacle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Obstacle.cpp; sourceTree = "<group>"; };
 		BC39BCC526EDFFFC0084BD53 /* Obstacle.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Obstacle.hpp; sourceTree = "<group>"; };
 		BC3B6BDA26B72AD20075123C /* CPP */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CPP; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCCAAA3B26F1F7DA00BDF1B4 /* Map.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Map.cpp; sourceTree = "<group>"; };
 		BCCAAA3C26F1F7DA00BDF1B4 /* Map.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Map.hpp; sourceTree = "<group>"; };
-		BCCAAA4426F2207100BDF1B4 /* shot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shot.wav; sourceTree = "<group>"; };
 		BCCAAA4626F220A900BDF1B4 /* Music.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Music.cpp; sourceTree = "<group>"; };
 		BCCAAA4726F220A900BDF1B4 /* Music.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Music.hpp; sourceTree = "<group>"; };
 		BCCECAEC26F19BA8002C5AFE /* Component.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Component.hpp; sourceTree = "<group>"; };
@@ -97,6 +106,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC37333E26F4CC89006775EE /* SDL2.framework in Frameworks */,
+				BC37333A26F4CC89006775EE /* SDL2_image.framework in Frameworks */,
+				BC37333C26F4CC89006775EE /* SDL2_mixer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,9 +140,7 @@
 				BCF87B5326EA159800931C46 /* Game.cpp */,
 				BCF87B5426EA159800931C46 /* Game.hpp */,
 				BCF87B5226EA159800931C46 /* GlobalHeader.h */,
-				BC346E0D26F3248D00E77453 /* assets */,
 				BCF87B5126EA159800931C46 /* main.cpp */,
-				BCCAAA4426F2207100BDF1B4 /* shot.wav */,
 				BCF87B5526EA159800931C46 /* Player.cpp */,
 				BCF87B5626EA159800931C46 /* Player.hpp */,
 				BCF87B9826EA382300931C46 /* Texture.cpp */,
@@ -144,6 +154,8 @@
 				BCCAAA3C26F1F7DA00BDF1B4 /* Map.hpp */,
 				BCCAAA4626F220A900BDF1B4 /* Music.cpp */,
 				BCCAAA4726F220A900BDF1B4 /* Music.hpp */,
+				BC37334726F4D93D006775EE /* Sprite.cpp */,
+				BC37334826F4D93D006775EE /* Sprite.hpp */,
 			);
 			path = CPP;
 			sourceTree = "<group>";
@@ -246,8 +258,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC346E0E26F324A800E77453 /* Game.cpp in Sources */,
-				BC346E0F26F324A800E77453 /* assets in Sources */,
 				BC346E1026F324A800E77453 /* main.cpp in Sources */,
+				BC37334926F4D93D006775EE /* Sprite.cpp in Sources */,
 				BC346E1126F324A800E77453 /* Player.cpp in Sources */,
 				BC346E1226F324A800E77453 /* Texture.cpp in Sources */,
 				BC346E1326F324A800E77453 /* Bullet.cpp in Sources */,
@@ -456,14 +468,17 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_ENTITLEMENTS = Test/Test.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7ZHQZR3FTK;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+					"$(PROJECT_DIR)/CPP/libs",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -473,14 +488,17 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_ENTITLEMENTS = Test/Test.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7ZHQZR3FTK;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+					"$(PROJECT_DIR)/CPP/libs",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

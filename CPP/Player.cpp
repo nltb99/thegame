@@ -8,14 +8,38 @@
 #include "Player.hpp"
 #include "Texture.hpp"
 #include "Game.hpp"
+#include "Sprite.hpp"
 
 std::vector<Bullet> Player::g_vBullet_bucket;
 
 Player::Player(const char* file_name, const int PLAYER_X, const int PLAYER_Y, const int PLAYER_WIDTH, const int PLAYER_HEIGHT)
 : PLAYER_WIDTH(PLAYER_WIDTH), PLAYER_HEIGHT(PLAYER_HEIGHT)
 {
-    b_pPlayerTexture = Texture::LoadTexture(file_name);
+//    b_pPlayerTexture = Texture::LoadTexture(file_name);
     g_playerRect = { PLAYER_X, PLAYER_Y, PLAYER_WIDTH, PLAYER_HEIGHT };
+    
+//    sprite.emplace_back(Texture::LoadTexture("assets/imgs/player/Idle__000.png"));
+//    sprite.emplace_back(Texture::LoadTexture("assets/imgs/player/Idle__001.png"));
+//    sprite.emplace_back(Texture::LoadTexture("assets/imgs/player/Idle__002.png"));
+//    sprite.emplace_back(Texture::LoadTexture("assets/imgs/player/Idle__003.png"));
+//    sprite.emplace_back(Texture::LoadTexture("assets/imgs/player/Idle__004.png"));
+//    sprite.emplace_back(Texture::LoadTexture("assets/imgs/player/Idle__005.png"));
+//    sprite.emplace_back(Texture::LoadTexture("assets/imgs/player/Idle__006.png"));
+//    sprite.emplace_back(Texture::LoadTexture("assets/imgs/player/Idle__007.png"));
+//    sprite.emplace_back(Texture::LoadTexture("assets/imgs/player/Idle__008.png"));
+//    sprite.emplace_back(Texture::LoadTexture("assets/imgs/player/Idle__009.png"));
+    
+    sprite.emplace_back(Texture::LoadTexture("assets/imgs/player/Dead__000.png"));
+    sprite.emplace_back(Texture::LoadTexture("assets/imgs/player/Dead__001.png"));
+    sprite.emplace_back(Texture::LoadTexture("assets/imgs/player/Dead__002.png"));
+    sprite.emplace_back(Texture::LoadTexture("assets/imgs/player/Dead__003.png"));
+    sprite.emplace_back(Texture::LoadTexture("assets/imgs/player/Dead__004.png"));
+    sprite.emplace_back(Texture::LoadTexture("assets/imgs/player/Dead__005.png"));
+    sprite.emplace_back(Texture::LoadTexture("assets/imgs/player/Dead__006.png"));
+    sprite.emplace_back(Texture::LoadTexture("assets/imgs/player/Dead__007.png"));
+    sprite.emplace_back(Texture::LoadTexture("assets/imgs/player/Dead__008.png"));
+    sprite.emplace_back(Texture::LoadTexture("assets/imgs/player/Dead__009.png"));
+    
 }
 
 Player::~Player()
@@ -23,35 +47,63 @@ Player::~Player()
     g_vBullet_bucket.clear();
 }
 
-void Player::update()  {
+void Player::update()
+{
     g_playerRect.x += velocityX;
     velocityY = 0;
     
-    // JUMP
+    // * Jump
     Player::on_jump();
     Player::on_fall();
-    
-    // BOUNDARIES
+        
+    // * Boundaries X
     if(
        (g_playerRect.x < 0) ||
-       (g_playerRect.x + PLAYER_WIDTH > Game::SCREEN_WIDTH)||
+       (g_playerRect.x + PLAYER_WIDTH > Game::SCREEN_WIDTH) ||
        this->bCollision(g_playerRect.x, g_playerRect.y)
        )
     {
        g_playerRect.x -= velocityX;
     }
-    
+
+    // * Boundaries Y
     if(
        (g_playerRect.y < 0) ||
        (g_playerRect.y + PLAYER_HEIGHT > Game::SCREEN_HEIGHT) ||
-       (g_playerRect.y > GROUND_HEIGHT))
+       (g_playerRect.y + PLAYER_HEIGHT > Game::GROUND_HEIGHT))
     {
        g_playerRect.y -= velocityY;
     }
+
 }
 
-void Player::draw()  {
-    SDL_RenderCopy(Game::renderer, b_pPlayerTexture, NULL, &g_playerRect);
+void Player::draw()
+{
+//    this->test_sprite();
+//    Texture::DrawTexture(b_pPlayerTexture, NULL, &g_playerRect);
+//    b_pPlayerTexture = Sprite::drawSprite(1, b_pPlayerTexture, NULL, &g_playerRect, 5);
+//    Sprite::drawSprite(1, b_pPlayerTexture, NULL, &g_playerRect, 5);
+
+//    b_pPlayerTexture = Sprite::getSprite(1)[0];
+//    b_pPlayerTexture = Texture::LoadTexture("assets/imgs/player/Dead__000.png");
+//    std::cout << Sprite::getSprite(1).size() << std::endl;
+}
+
+std::pair<int, int> bao;
+Uint32 Player::test_sprite()
+{
+    bao.second++;
+    if(bao.second == 2){
+        test_idx++;
+        b_pPlayerTexture = sprite[test_idx];
+        if(test_idx >= sprite.size() - 1){
+            test_idx= 0;
+        }
+        bao.second = 0;
+    }
+   
+    
+    return  0;
 }
 
 void Player::move_up(const bool bRevert)
@@ -92,6 +144,7 @@ void Player::on_start_jump()
 void Player::on_jump()
 {
     if(jump_status == 1){
+        // * Jumping
         velocityY += -abs(jumpStep);
         g_playerRect.y += velocityY;
         jumpStep += G_JUMP_SPEED;
@@ -103,25 +156,42 @@ void Player::on_jump()
 
 void Player::on_fall()
 {
+    int adjustX = g_playerRect.x;
+    int adjustY = g_playerRect.y;
+    
+    if(hold_right) {
+        adjustX -= 5;
+    } else if(hold_left){
+        adjustX += 5;
+    }
+    
+    if(hold_up) {
+        adjustY += 5;
+    } else if(hold_down){
+        adjustY -= 5;
+    }
+    
     if(jump_status == 2){
-        if(this->bCollision(g_playerRect.x, g_playerRect.y + abs(jumpStep))){
+        // * Falling
+        if(this->bCollision(adjustX, adjustY + abs(jumpStep))){
             g_playerRect.y += m_pPlayerCollision.y - PLAYER_HEIGHT - (g_playerRect.y + velocityY);
             jump_status = 0;
         } else{
             velocityY += abs(jumpStep);
             g_playerRect.y += velocityY;
-            jumpStep += G_FALL_SPEED;
+            jumpStep += G_FALL_SPEED;      
         }
 
-        bool bTouchGround = g_playerRect.y + velocityY + jumpStep > GROUND_HEIGHT;
+        // * Check touch ground
+        bool bTouchGround = g_playerRect.y + PLAYER_HEIGHT + velocityY + jumpStep > Game::GROUND_HEIGHT;
         if(bTouchGround){
-            g_playerRect.y += GROUND_HEIGHT - g_playerRect.y;
+            g_playerRect.y += Game::GROUND_HEIGHT - PLAYER_HEIGHT - g_playerRect.y;
             jump_status = 0;
         }
-
     } else if(jump_status == 0){
-        if(!this->bCollision(g_playerRect.x, g_playerRect.y + G_MOVE_SPEED)){
-            g_playerRect.y += G_MOVE_SPEED * G_MOVE_SPEED * 0.8;
+        // * Gravity
+        if(!this->bCollision(adjustX, adjustY + G_SPEED_GRAVITY)){
+            g_playerRect.y += G_SPEED_GRAVITY;
         }
     }
 }
@@ -140,7 +210,12 @@ void Player::on_short()
         posY = g_playerRect.y;
         speedX = -Bullet::G_SPEED_BULLET;
         speedY = 0;
+    } else {
+        throw std::runtime_error("ERROR empty stack");
     }
+    
+    // * Adjust bullet position
+    posY += PLAYER_HEIGHT / 2;
     
     std::unique_ptr<Bullet> bullet = std::make_unique<Bullet>
     (
@@ -161,8 +236,8 @@ bool Player::bCollision(const int playerX, const int playerY)
            (playerX >= objectX - PLAYER_WIDTH + 1 &&
             playerX <= objectX + objectWidth - 1 &&
             playerY >= objectY - PLAYER_HEIGHT + 1 &&
-            playerY <= objectY + objectHeight - 1 ) ||
-           (playerY > GROUND_HEIGHT)
+            playerY <= objectY + objectHeight - 1) ||
+           (playerY + PLAYER_HEIGHT > Game::GROUND_HEIGHT)
            ){
             m_pPlayerCollision = Game::g_vObstacle_bucket[i].obstacleRect;
             return true;
@@ -181,7 +256,7 @@ void Player::update_bullet()
 void Player::draw_bullet()
 {
     for(size_t i = 0; i < g_vBullet_bucket.size(); ++i){
-        SDL_RenderCopy(Game::renderer, Bullet::b_pBulletTexture, NULL, &g_vBullet_bucket[i].bulletRect);
+        Texture::DrawTexture(Bullet::b_pBulletTexture, NULL, &g_vBullet_bucket[i].bulletRect);
     }
 }
 

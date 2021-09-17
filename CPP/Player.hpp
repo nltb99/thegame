@@ -26,17 +26,22 @@ public:
     } DIRECTION;
     
     const int PLAYER_WIDTH, PLAYER_HEIGHT;
-    SDL_Texture* b_pPlayerTexture;
-    static std::vector<Bullet> g_vBullet_bucket;
-    
-    SDL_Rect g_playerRect, m_pPlayerCollision;
     int g_lastDirection = DIRECTION.RIGHT;
+    
+    static std::vector<Bullet> g_vBullet_bucket;
+    std::vector<SDL_Texture*> sprite;
+    
+    SDL_Texture* b_pPlayerTexture;
+    SDL_Rect g_playerRect, m_pPlayerCollision;
+   
     
     const int G_JUMP_HEIGHT = -20;
     const float G_JUMP_SPEED = 1;
     const float G_FALL_SPEED = 1.5;
     const int G_MOVE_SPEED = 5;
-    const float GROUND_HEIGHT = 500;
+    const int G_SPEED_GRAVITY = G_MOVE_SPEED * G_MOVE_SPEED * 0.6;
+    
+    bool hold_left = 0, hold_right = 0, hold_up = 0, hold_down = 0;
     
     void update();
     void draw();
@@ -53,13 +58,16 @@ public:
     void update_bullet();
     void draw_bullet();
     
+    Uint32 test_sprite();
+    int test_idx = 0;
+    
 private:
     float velocityX = 0;
     float velocityY = 0;
     
     float jumpStep;
     int jump_status = 0;
-
+    
 };
 
 #endif /* Player_hpp */
