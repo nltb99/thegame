@@ -26,6 +26,7 @@
 		BC37333F26F4CC89006775EE /* SDL2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BC346DE826F31F7300E77453 /* SDL2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BC37334926F4D93D006775EE /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC37334726F4D93D006775EE /* Sprite.cpp */; };
 		BCF87B8D26EA1C7F00931C46 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCF87B8C26EA1C7F00931C46 /* main.cpp */; };
+		BCFCB15C26F5BEC8000B54FA /* Assets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCFCB15A26F5BEC8000B54FA /* Assets.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -89,6 +90,8 @@
 		BCF87B9726EA1D1C00931C46 /* Test.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Test.entitlements; sourceTree = "<group>"; };
 		BCF87B9826EA382300931C46 /* Texture.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Texture.cpp; sourceTree = "<group>"; };
 		BCF87B9926EA382300931C46 /* Texture.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Texture.hpp; sourceTree = "<group>"; };
+		BCFCB15A26F5BEC8000B54FA /* Assets.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Assets.cpp; sourceTree = "<group>"; };
+		BCFCB15B26F5BEC8000B54FA /* Assets.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Assets.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +159,8 @@
 				BCCAAA4726F220A900BDF1B4 /* Music.hpp */,
 				BC37334726F4D93D006775EE /* Sprite.cpp */,
 				BC37334826F4D93D006775EE /* Sprite.hpp */,
+				BCFCB15A26F5BEC8000B54FA /* Assets.cpp */,
+				BCFCB15B26F5BEC8000B54FA /* Assets.hpp */,
 			);
 			path = CPP;
 			sourceTree = "<group>";
@@ -265,6 +270,7 @@
 				BC346E1326F324A800E77453 /* Bullet.cpp in Sources */,
 				BC346E1426F324A800E77453 /* Obstacle.cpp in Sources */,
 				BC346E1526F324A800E77453 /* Map.cpp in Sources */,
+				BCFCB15C26F5BEC8000B54FA /* Assets.cpp in Sources */,
 				BC346E1626F324A800E77453 /* Music.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,6 +11,7 @@
 #include "GlobalHeader.h"
 #include <time.h>
 #include <vector>
+#include <map>
 #include "Obstacle.hpp"
 
 class Game
@@ -25,6 +26,17 @@ public:
     
     static SDL_Renderer* renderer;
     static std::vector<Obstacle> g_vObstacle_bucket;
+    
+    typedef struct SPRITE_ELEMENT {
+        std::vector<SDL_Texture*> vt;
+        int currentFrame = 0;
+        int currentIndex = 0;
+        bool bAscending = true;
+        int delta = 1;
+    } SPRITE_ELEMENT;
+        
+    static std::map<int, SPRITE_ELEMENT> g_mSprite_bucket;
+
 
     void init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen);
     void handleEvents();

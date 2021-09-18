@@ -12,13 +12,16 @@
 #include "Obstacle.hpp"
 #include "Music.hpp"
 #include "Sprite.hpp"
+#include "Assets.hpp"
 
 SDL_Renderer* Game::renderer = nullptr;
 
 std::unique_ptr<Player> player = nullptr;
 std::unique_ptr<Music> music = nullptr;
+std::unique_ptr<Assets> assets = nullptr;
 
 std::vector<Obstacle> Game::g_vObstacle_bucket;
+std::map<int, Game::SPRITE_ELEMENT> Game::g_mSprite_bucket;
 
 Game::Game()
 {
@@ -40,20 +43,13 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
         renderer = SDL_CreateRenderer(window, -1, 0);
         
         music = std::make_unique<Music>();
+        assets = std::make_unique<Assets>();
         player = std::make_unique<Player>("assets/imgs/player/Idle__000.png", 50, 100, 50, 100);
         g_vObstacle_bucket.push_back(*std::make_unique<Obstacle>(400, 450, 150, 300));
         g_vObstacle_bucket.push_back(*std::make_unique<Obstacle>(650, 350, 150, 1000));
         
-        Sprite::addSprite(1, "assets/imgs/player/Dead__000.png");
-        Sprite::addSprite(1, "assets/imgs/player/Dead__001.png");
-        Sprite::addSprite(1, "assets/imgs/player/Dead__002.png");
-        Sprite::addSprite(1, "assets/imgs/player/Dead__003.png");
-        Sprite::addSprite(1, "assets/imgs/player/Dead__004.png");
-        Sprite::addSprite(1, "assets/imgs/player/Dead__005.png");
-        Sprite::addSprite(1, "assets/imgs/player/Dead__006.png");
-        Sprite::addSprite(1, "assets/imgs/player/Dead__007.png");
-        Sprite::addSprite(1, "assets/imgs/player/Dead__008.png");
-        Sprite::addSprite(1, "assets/imgs/player/Dead__009.png");
+        assets->PreLoadImage();
+        
 
         g_bRunning = true;
     } else{

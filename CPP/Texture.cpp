@@ -21,5 +21,9 @@ SDL_Texture* Texture::LoadTexture(const char* file_name)
 
 void Texture::DrawTexture(SDL_Texture* texture, SDL_Rect* srcRect, SDL_Rect* desRect)
 {
-    SDL_RenderCopy(Game::renderer, texture, srcRect, desRect);
+    try {
+        SDL_RenderCopy(Game::renderer, texture, srcRect, desRect);
+    } catch (std::exception e){
+        std::cout << SDL_GetError() << std::endl;
+    }
 }

@@ -9,6 +9,7 @@
 #include "Texture.hpp"
 #include "Game.hpp"
 #include "Sprite.hpp"
+#include "Assets.hpp"
 
 std::vector<Bullet> Player::g_vBullet_bucket;
 
@@ -79,31 +80,7 @@ void Player::update()
 
 void Player::draw()
 {
-//    this->test_sprite();
-//    Texture::DrawTexture(b_pPlayerTexture, NULL, &g_playerRect);
-//    b_pPlayerTexture = Sprite::drawSprite(1, b_pPlayerTexture, NULL, &g_playerRect, 5);
-//    Sprite::drawSprite(1, b_pPlayerTexture, NULL, &g_playerRect, 5);
-
-//    b_pPlayerTexture = Sprite::getSprite(1)[0];
-//    b_pPlayerTexture = Texture::LoadTexture("assets/imgs/player/Dead__000.png");
-//    std::cout << Sprite::getSprite(1).size() << std::endl;
-}
-
-std::pair<int, int> bao;
-Uint32 Player::test_sprite()
-{
-    bao.second++;
-    if(bao.second == 2){
-        test_idx++;
-        b_pPlayerTexture = sprite[test_idx];
-        if(test_idx >= sprite.size() - 1){
-            test_idx= 0;
-        }
-        bao.second = 0;
-    }
-   
-    
-    return  0;
+    Sprite::drawSprite(Assets::PLAYER, NULL, &g_playerRect, 2, true);
 }
 
 void Player::move_up(const bool bRevert)

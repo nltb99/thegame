@@ -34,7 +34,6 @@ public:
     SDL_Texture* b_pPlayerTexture;
     SDL_Rect g_playerRect, m_pPlayerCollision;
    
-    
     const int G_JUMP_HEIGHT = -20;
     const float G_JUMP_SPEED = 1;
     const float G_FALL_SPEED = 1.5;
@@ -57,9 +56,6 @@ public:
     bool bCollision(const int playerX, const int playerY);
     void update_bullet();
     void draw_bullet();
-    
-    Uint32 test_sprite();
-    int test_idx = 0;
     
 private:
     float velocityX = 0;
