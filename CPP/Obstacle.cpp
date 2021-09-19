@@ -22,8 +22,8 @@ Obstacle::~Obstacle()
 
 void Obstacle::draw_obstacle()
 {
-    obstacleRect = { objectX, objectY, objectWidth, objectHeight };
+    rect = { objectX, objectY, objectWidth, objectHeight };
     SDL_SetRenderDrawColor(Game::renderer, 0xFF, 0x00, 0x00, 0xFF);
-    SDL_RenderFillRect(Game::renderer, &obstacleRect );
+    SDL_RenderFillRect(Game::renderer, &rect );
 }
 

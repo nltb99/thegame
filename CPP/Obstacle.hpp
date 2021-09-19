@@ -18,7 +18,7 @@ public:
     Obstacle(const int objectX, const int objectY, const int objectWidth, const int objectHeight);
     ~Obstacle();
     
-    SDL_Rect obstacleRect;
+    SDL_Rect rect;
     void draw_obstacle();
     
 private:

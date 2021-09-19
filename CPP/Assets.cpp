@@ -44,5 +44,6 @@ void Assets::PreLoadMusic()
 void Assets::LoadObstacle()
 {
     Game::g_vObstacle_bucket.push_back(*std::make_unique<Obstacle>(400, 450, 150, 300));
+    Game::g_vObstacle_bucket.push_back(*std::make_unique<Obstacle>(0, 650 - 150, 900, 150));
     Game::g_vObstacle_bucket.push_back(*std::make_unique<Obstacle>(650, 350, 150, 1000));
 }

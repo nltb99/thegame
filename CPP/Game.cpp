@@ -14,16 +14,10 @@
 #include "Sprite.hpp"
 #include "Assets.hpp"
 
-#include "ECS.hpp"
-#include "Entity.hpp"
-#include "Transform.hpp"
-#include "Vector2D.hpp"
-
 SDL_Renderer* Game::renderer = nullptr;
 
 std::unique_ptr<Player> player = nullptr;
 std::unique_ptr<Assets> assets = nullptr;
-Entity* entity = nullptr;
 
 std::vector<Obstacle> Game::g_vObstacle_bucket;
 std::unordered_map<int, Game::SPRITE_ELEMENT> Game::g_mSprite_bucket;
@@ -79,11 +73,13 @@ void Game::handleEvents()
                     player->move_right(false);
                     player->hold_right = true;
                     break;
-                case SDLK_DOWN:
-                    player->move_down(false);
-                    break;
                 case SDLK_UP:
                     player->move_up(false);
+                    player->hold_up = true;
+                    break;
+                case SDLK_DOWN:
+                    player->move_down(false);
+                    player->hold_down = true;
                     break;
                 case SDLK_SPACE:
                     player->on_start_jump();
@@ -103,11 +99,13 @@ void Game::handleEvents()
                     player->move_left(true);
                     player->hold_right = false;
                     break;
-                case SDLK_DOWN:
-                    player->move_up(true);
-                    break;
                 case SDLK_UP:
                     player->move_down(true);
+                    player->hold_up = false;
+                    break;
+                case SDLK_DOWN:
+                    player->move_up(true);
+                    player->hold_down = false;
                     break;
             }
         } else if(event.type == SDL_QUIT){

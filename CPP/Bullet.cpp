@@ -16,7 +16,7 @@ Bullet::Bullet(const char* file_name, const int bulletX, const int bulletY, cons
 : bulletWidth(bulletWidth), bulletHeight(bulletHeight), m_speedX(m_speedX), m_speedY(m_speedY)
 {
     b_pBulletTexture = Texture::LoadTexture(file_name);
-    bulletRect = { bulletX, bulletY, bulletWidth, bulletHeight };
+    rect = { bulletX, bulletY, bulletWidth, bulletHeight };
 }
 
 Bullet::~Bullet()
@@ -26,24 +26,24 @@ Bullet::~Bullet()
 void Bullet::update(size_t index)
 {
     if(
-       bulletRect.x > Game::SCREEN_WIDTH ||
-       bulletRect.y > Game::SCREEN_HEIGHT ||
-       this->bCollision(bulletRect.x, bulletRect.y)
+       rect.x > Game::SCREEN_WIDTH ||
+       rect.y > Game::SCREEN_HEIGHT ||
+       this->bCollision(rect.x, rect.y)
        ){
         Player::g_vBullet_bucket.erase(Player::g_vBullet_bucket.begin() + index);
     }
-    bulletRect.x += m_speedX;
-    bulletRect.y += m_speedY;
+    rect.x += m_speedX;
+    rect.y += m_speedY;
 }
 
 
 bool Bullet::bCollision(const int bulletX, const int bulletY)
 {
     for(size_t i = 0; i < Game::g_vObstacle_bucket.size(); ++i){
-        float objectX = Game::g_vObstacle_bucket[i].obstacleRect.x;
-        float objectY = Game::g_vObstacle_bucket[i].obstacleRect.y;
-        float objectWidth = Game::g_vObstacle_bucket[i].obstacleRect.w;
-        float objectHeight = Game::g_vObstacle_bucket[i].obstacleRect.h;
+        float objectX = Game::g_vObstacle_bucket[i].rect.x;
+        float objectY = Game::g_vObstacle_bucket[i].rect.y;
+        float objectWidth = Game::g_vObstacle_bucket[i].rect.w;
+        float objectHeight = Game::g_vObstacle_bucket[i].rect.h;
         
         if(
            bulletX >= objectX - bulletWidth + 1 &&

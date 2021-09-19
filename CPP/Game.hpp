@@ -22,7 +22,6 @@ public:
     
     static const int SCREEN_WIDTH = 900;
     static const int SCREEN_HEIGHT = 650;
-    static constexpr float GROUND_HEIGHT = SCREEN_HEIGHT - 50;
     
     static SDL_Renderer* renderer;
     static std::vector<Obstacle> g_vObstacle_bucket;

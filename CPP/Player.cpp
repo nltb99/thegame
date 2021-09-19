@@ -24,39 +24,61 @@ Player::~Player()
     g_vBullet_bucket.clear();
 }
 
+void Player::draw()
+{
+    Sprite::drawSprite(Assets::IMAGE_PLAYER, NULL, &g_playerRect, 2, true);
+}
+
+void Player::draw_bullet()
+{
+    for(size_t i = 0; i < g_vBullet_bucket.size(); ++i){
+        Texture::DrawTexture(Bullet::b_pBulletTexture, NULL, &g_vBullet_bucket[i].rect);
+    }
+}
+
 void Player::update()
 {
     g_playerRect.x += velocityX;
-    velocityY = 0;
     
-    // * Jump
-    Player::on_jump();
-    Player::on_fall();
+    if(!b_useJump){
+        // * Fly Mode
+        g_playerRect.y += velocityY;
+    } else {
+        // * Jump Mode
+//        this->on_jump();
+//        this->on_fall();
         
+//        Transform::on_jump(&g_playerRect);
+//        Transform::on_fall(&g_playerRect);
+        velocityY = 0;
+    }
+
     // * Boundaries X
-    if(
-       (g_playerRect.x < 0) ||
-       (g_playerRect.x + PLAYER_WIDTH > Game::SCREEN_WIDTH) ||
-       this->bCollision(g_playerRect.x, g_playerRect.y)
-       )
+    if((g_playerRect.x < 0) ||
+       (g_playerRect.x + PLAYER_WIDTH > Game::SCREEN_WIDTH))
     {
        g_playerRect.x -= velocityX;
     }
 
     // * Boundaries Y
-    if(
-       (g_playerRect.y < 0) ||
-       (g_playerRect.y + PLAYER_HEIGHT > Game::SCREEN_HEIGHT) ||
-       (g_playerRect.y + PLAYER_HEIGHT > Game::GROUND_HEIGHT))
+    if((g_playerRect.y < 0) ||
+       (g_playerRect.y + PLAYER_HEIGHT > Game::SCREEN_HEIGHT))
     {
        g_playerRect.y -= velocityY;
     }
+    
+//    if(this->bCollision(g_playerRect.x, g_playerRect.y).boolean) {
+//        g_playerRect.x -= velocityX;
+//        g_playerRect.y -= velocityY;
+//    }
 
 }
 
-void Player::draw()
+void Player::update_bullet()
 {
-    Sprite::drawSprite(Assets::IMAGE_PLAYER, NULL, &g_playerRect, 2, true);
+    for(int i = 0; i < g_vBullet_bucket.size(); ++i){
+        g_vBullet_bucket[i].update(i);
+    }
 }
 
 void Player::move_up(const bool bRevert)
@@ -85,69 +107,63 @@ void Player::move_right(const bool bRevert)
     }
 }
 
-void Player::on_start_jump()
-{
-    if(jump_status == 0){
-        jump_status = 1;
-        velocityY = 0;
-        jumpStep = G_JUMP_HEIGHT;
-    }
-}
-
-void Player::on_jump()
-{
-    if(jump_status == 1){
-        // * Jumping
-        velocityY += -abs(jumpStep);
-        g_playerRect.y += velocityY;
-        jumpStep += G_JUMP_SPEED;
-        if(jumpStep > 0) {
-            jump_status = 2;
-        }
-    }
-}
-
-void Player::on_fall()
-{
-    int adjustX = g_playerRect.x;
-    int adjustY = g_playerRect.y;
-    
-    if(hold_right) {
-        adjustX -= 5;
-    } else if(hold_left){
-        adjustX += 5;
-    }
-    
-    if(hold_up) {
-        adjustY += 5;
-    } else if(hold_down){
-        adjustY -= 5;
-    }
-    
-    if(jump_status == 2){
-        // * Falling
-        if(this->bCollision(adjustX, adjustY + abs(jumpStep))){
-            g_playerRect.y += m_pPlayerCollision.y - PLAYER_HEIGHT - (g_playerRect.y + velocityY);
-            jump_status = 0;
-        } else{
-            velocityY += abs(jumpStep);
-            g_playerRect.y += velocityY;
-            jumpStep += G_FALL_SPEED;      
-        }
-
-        // * Check touch ground
-        bool bTouchGround = g_playerRect.y + PLAYER_HEIGHT + velocityY + jumpStep > Game::GROUND_HEIGHT;
-        if(bTouchGround){
-            g_playerRect.y += Game::GROUND_HEIGHT - PLAYER_HEIGHT - g_playerRect.y;
-            jump_status = 0;
-        }
-    } else if(jump_status == 0){
-        // * Gravity
-        if(!this->bCollision(adjustX, adjustY + G_SPEED_GRAVITY)){
-            g_playerRect.y += G_SPEED_GRAVITY;
-        }
-    }
-}
+//void Player::on_start_jump()
+//{
+//    if(jump_status == 0 && b_useJump){
+//        jump_status = 1;
+//        velocityY = 0;
+//        jumpStep = G_JUMP_HEIGHT;
+//    }
+//}
+//
+//void Player::on_jump()
+//{
+//    if(jump_status == 1){
+//        // * Jumping
+//        velocityY += -abs(jumpStep);
+//        g_playerRect.y += velocityY;
+//        jumpStep += G_JUMP_SPEED;
+//        if(jumpStep > 0) {
+//            jump_status = 2;
+//        }
+//    }
+//}
+//
+//void Player::on_fall()
+//{
+//    int adjustX = g_playerRect.x;
+//    int adjustY = g_playerRect.y;
+//
+//    if(hold_right) {
+//        adjustX -= G_MOVE_SPEED;
+//    } else if(hold_left){
+//        adjustX += G_MOVE_SPEED;
+//    }
+//
+//    if(hold_up) {
+//        adjustY += G_MOVE_SPEED;
+//    } else if(hold_down){
+//        adjustY -= G_MOVE_SPEED;
+//    }
+//
+//    if(jump_status == 2){
+//        // * Falling
+//        auto statusCollision = this->bCollision(adjustX, adjustY + abs(jumpStep));
+//        if(statusCollision.boolean){
+//            g_playerRect.y += statusCollision.colisionRect.y - PLAYER_HEIGHT - (g_playerRect.y + velocityY);
+//            jump_status = 0;
+//        } else{
+//            velocityY += abs(jumpStep);
+//            g_playerRect.y += velocityY;
+//            jumpStep += G_FALL_SPEED;
+//        }
+//    } else if(jump_status == 0){
+//        // * Gravity
+//        if(!this->bCollision(adjustX, adjustY + G_SPEED_GRAVITY).boolean){
+//            g_playerRect.y += G_SPEED_GRAVITY;
+//        }
+//    }
+//}
 
 void Player::on_short()
 {
@@ -177,41 +193,27 @@ void Player::on_short()
     g_vBullet_bucket.emplace_back(*bullet);
 }
 
-bool Player::bCollision(const int playerX, const int playerY)
-{
-    for(size_t i = 0; i < Game::g_vObstacle_bucket.size(); ++i){
-        float objectX = Game::g_vObstacle_bucket[i].obstacleRect.x;
-        float objectY = Game::g_vObstacle_bucket[i].obstacleRect.y;
-        float objectWidth = Game::g_vObstacle_bucket[i].obstacleRect.w;
-        float objectHeight = Game::g_vObstacle_bucket[i].obstacleRect.h;
-        
-        if(
-           (playerX >= objectX - PLAYER_WIDTH + 1 &&
-            playerX <= objectX + objectWidth - 1 &&
-            playerY >= objectY - PLAYER_HEIGHT + 1 &&
-            playerY <= objectY + objectHeight - 1) ||
-           (playerY + PLAYER_HEIGHT > Game::GROUND_HEIGHT)
-           ){
-            m_pPlayerCollision = Game::g_vObstacle_bucket[i].obstacleRect;
-            return true;
-        }
-    }
-    return false;
-}
+//Player::COLLISION Player::bCollision(const int playerX, const int playerY)
+//{
+//    COLLISION ret;
+//    for(size_t i = 0; i < Game::g_vObstacle_bucket.size(); ++i){
+//        float objectX = Game::g_vObstacle_bucket[i].rect.x;
+//        float objectY = Game::g_vObstacle_bucket[i].rect.y;
+//        float objectWidth = Game::g_vObstacle_bucket[i].rect.w;
+//        float objectHeight = Game::g_vObstacle_bucket[i].rect.h;
+//
+//        if(playerX >= objectX - PLAYER_WIDTH + 1 &&
+//            playerX <= objectX + objectWidth - 1 &&
+//            playerY >= objectY - PLAYER_HEIGHT + 1 &&
+//            playerY <= objectY + objectHeight - 1
+//           ){
+//            ret.boolean = true;
+//            ret.colisionRect = Game::g_vObstacle_bucket[i].rect;
+//        }
+//    }
+//    return ret;
+//}
 
-void Player::update_bullet()
-{
-    for(int i = 0; i < g_vBullet_bucket.size(); ++i){
-        g_vBullet_bucket[i].update(i);
-    }
-}
-
-void Player::draw_bullet()
-{
-    for(size_t i = 0; i < g_vBullet_bucket.size(); ++i){
-        Texture::DrawTexture(Bullet::b_pBulletTexture, NULL, &g_vBullet_bucket[i].bulletRect);
-    }
-}
 
 
 
