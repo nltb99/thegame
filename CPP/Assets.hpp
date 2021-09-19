@@ -16,12 +16,18 @@ public:
     ~Assets();
     
     enum : int {
-        PLAYER,
-        BULLET
+        IMAGE_PLAYER,
+        IM_BULLET
+    };
+    
+    enum : int {
+        SOUND_SHOT,
     };
     
     void PreLoadImage();
     void PreLoadMusic();
+    void LoadObstacle();
+
 private:
 };
 

@@ -22,12 +22,11 @@
 SDL_Renderer* Game::renderer = nullptr;
 
 std::unique_ptr<Player> player = nullptr;
-std::unique_ptr<Music> music = nullptr;
 std::unique_ptr<Assets> assets = nullptr;
 Entity* entity = nullptr;
 
 std::vector<Obstacle> Game::g_vObstacle_bucket;
-std::map<int, Game::SPRITE_ELEMENT> Game::g_mSprite_bucket;
+std::unordered_map<int, Game::SPRITE_ELEMENT> Game::g_mSprite_bucket;
 
 Game::Game()
 {
@@ -48,19 +47,17 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
         window = SDL_CreateWindow(title, xpos, ypos, width, height, flags);
         renderer = SDL_CreateRenderer(window, -1, 0);
         
-        entity = new Entity();
-        entity->addComponent<Transform>(100, 100);
+        // * Music
+        Mix_OpenAudio( MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, 2, 4096);
+        Mix_VolumeMusic(100);
         
-        std::cout << entity->getComponent<Transform>().position << std::endl;
-        
-        music = std::make_unique<Music>();
         assets = std::make_unique<Assets>();
-        player = std::make_unique<Player>("assets/imgs/player/Idle__000.png", 50, 100, 50, 100);
-        g_vObstacle_bucket.push_back(*std::make_unique<Obstacle>(400, 450, 150, 300));
-        g_vObstacle_bucket.push_back(*std::make_unique<Obstacle>(650, 350, 150, 1000));
+        player = std::make_unique<Player>(50, 100, 50, 100);
         
         assets->PreLoadImage();
-        
+        assets->PreLoadMusic();
+        assets->LoadObstacle();
+
         g_bRunning = true;
     } else{
         g_bRunning = false;
@@ -92,7 +89,7 @@ void Game::handleEvents()
                     player->on_start_jump();
                     break;
                 case SDLK_c:
-                    music->playMusic(Music::chunkShot, 1);
+                    Music::playMusic(Assets::SOUND_SHOT, 1);
                     player->on_short();
                     break;
             }

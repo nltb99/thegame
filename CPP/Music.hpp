@@ -11,23 +11,21 @@
 #include <stdio.h>
 #include "GlobalHeader.h"
 #include <vector>
-#include <map>
+#include <unordered_map>
 
 class Music {
 public:
-    Music();
-    ~Music();
-    std::map<int, Mix_Music*> g_vMusic;
-    std::map<int, Mix_Chunk*> g_vChunk;
+    static std::unordered_map<int, Mix_Music*> g_vMusic;
+    static std::unordered_map<int, Mix_Chunk*> g_vChunk;
     
     enum LIST_MUSIC {
         chunkShot
     } ;
             
-    void loadChunk(const int music_id, const char* file_name);
-    void loadMusic(const int music_id, const char* file_name);
+    static void loadChunk(const int music_id, const char* file_name);
+    static void loadMusic(const int music_id, const char* file_name);
     
-    void playChunk(const int music_id, const int loop);
-    void playMusic(const int music_id, const int loop);
+    static void playChunk(const int music_id, const int loop);
+    static void playMusic(const int music_id, const int loop);
 };
 #endif /* Music_hpp */

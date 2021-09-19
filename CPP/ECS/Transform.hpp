@@ -14,16 +14,17 @@
 class Transform : public Component
 {
 public:
-    Transform() {
-        position.initValue(0, 0);
-        scale.initValue(1, 1);
-        Rotation = 0.0f;
-    }
+    Transform() = default;
     
     Transform(float x, float y) {
         position.initValue(x, y );
         scale.initValue(1, 1);
         Rotation = 0.0f;
+    }
+    
+    Transform(float x, float y, float scaleX, float scaleY) {
+        position.initValue(x, y );
+        scale.initValue(scaleX, scaleY);
     }
     
     Transform(float x, float y, float scaleX, float scaleY, float rotation) {
@@ -35,15 +36,13 @@ public:
     virtual ~Transform() {}
     
     bool init() override final
-    {
-       
-        
+    {   
         return true;
     }
     
-    Vector2F position;
-    Vector2F scale;
-    float Rotation;
+    Vector2F position = Vector2F();
+    Vector2F scale = Vector2F(1, 1);
+    float Rotation = 0.0f;
     
 };
 

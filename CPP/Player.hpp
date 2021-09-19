@@ -15,7 +15,7 @@
 class Player
 {
 public:
-    Player(const char* file_name, const int PLAYER_X, const int PLAYER_Y, const int PLAYER_WIDTH, const int PLAYER_HEIGHT);
+    Player(const int PLAYER_X, const int PLAYER_Y, const int PLAYER_WIDTH, const int PLAYER_HEIGHT);
     ~Player();
     
     struct DIRECTION {
@@ -31,7 +31,6 @@ public:
     static std::vector<Bullet> g_vBullet_bucket;
     std::vector<SDL_Texture*> sprite;
     
-    SDL_Texture* b_pPlayerTexture;
     SDL_Rect g_playerRect, m_pPlayerCollision;
    
     const int G_JUMP_HEIGHT = -20;

@@ -11,7 +11,7 @@
 #include "GlobalHeader.h"
 #include <time.h>
 #include <vector>
-#include <map>
+#include <unordered_map>
 #include "Obstacle.hpp"
 
 class Game
@@ -35,7 +35,7 @@ public:
         int delta = 1;
     } SPRITE_ELEMENT;
         
-    static std::map<int, SPRITE_ELEMENT> g_mSprite_bucket;
+    static std::unordered_map<int, SPRITE_ELEMENT> g_mSprite_bucket;
 
 
     void init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen);

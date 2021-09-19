@@ -7,35 +7,15 @@
 
 #include "Music.hpp"
 
-Music::Music()
-{
-    Mix_OpenAudio( MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, 2, 4096);
-    Mix_VolumeMusic(100);
-    
-    this->loadMusic(chunkShot, "assets/sounds/shot.wav");
-    this->loadChunk(chunkShot, "assets/sounds/shot.wav");
-}
-
-Music::~Music()
-{
-    for(int i = 0; i < g_vMusic.size(); i++) {
-        Mix_FreeMusic(g_vMusic[i]);
-    }
-    
-    for(int i = 0; i < g_vChunk.size(); i++) {
-        Mix_FreeChunk(g_vChunk[i]);
-    }
-    
-    g_vMusic.clear();
-    g_vChunk.clear();
-}
+std::unordered_map<int, Mix_Music*> Music::g_vMusic;
+std::unordered_map<int, Mix_Chunk*> Music::g_vChunk;
 
 void Music::loadChunk(const int music_id, const char* file_name){
-    g_vChunk.insert(std::make_pair(music_id, Mix_LoadWAV(file_name)));
+    g_vChunk[music_id] = Mix_LoadWAV(file_name);
 }
 
 void Music::loadMusic(const int music_id, const char* file_name){
-    g_vMusic.insert(std::make_pair(music_id, Mix_LoadMUS(file_name)));
+    g_vMusic[music_id] = Mix_LoadMUS(file_name);
 }
 
 void Music::playMusic(const int music_id, const int loop){

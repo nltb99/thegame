@@ -13,34 +13,10 @@
 
 std::vector<Bullet> Player::g_vBullet_bucket;
 
-Player::Player(const char* file_name, const int PLAYER_X, const int PLAYER_Y, const int PLAYER_WIDTH, const int PLAYER_HEIGHT)
+Player::Player(const int PLAYER_X, const int PLAYER_Y, const int PLAYER_WIDTH, const int PLAYER_HEIGHT)
 : PLAYER_WIDTH(PLAYER_WIDTH), PLAYER_HEIGHT(PLAYER_HEIGHT)
 {
-//    b_pPlayerTexture = Texture::LoadTexture(file_name);
     g_playerRect = { PLAYER_X, PLAYER_Y, PLAYER_WIDTH, PLAYER_HEIGHT };
-    
-//    sprite.emplace_back(Texture::LoadTexture("assets/imgs/player/Idle__000.png"));
-//    sprite.emplace_back(Texture::LoadTexture("assets/imgs/player/Idle__001.png"));
-//    sprite.emplace_back(Texture::LoadTexture("assets/imgs/player/Idle__002.png"));
-//    sprite.emplace_back(Texture::LoadTexture("assets/imgs/player/Idle__003.png"));
-//    sprite.emplace_back(Texture::LoadTexture("assets/imgs/player/Idle__004.png"));
-//    sprite.emplace_back(Texture::LoadTexture("assets/imgs/player/Idle__005.png"));
-//    sprite.emplace_back(Texture::LoadTexture("assets/imgs/player/Idle__006.png"));
-//    sprite.emplace_back(Texture::LoadTexture("assets/imgs/player/Idle__007.png"));
-//    sprite.emplace_back(Texture::LoadTexture("assets/imgs/player/Idle__008.png"));
-//    sprite.emplace_back(Texture::LoadTexture("assets/imgs/player/Idle__009.png"));
-    
-    sprite.emplace_back(Texture::LoadTexture("assets/imgs/player/Dead__000.png"));
-    sprite.emplace_back(Texture::LoadTexture("assets/imgs/player/Dead__001.png"));
-    sprite.emplace_back(Texture::LoadTexture("assets/imgs/player/Dead__002.png"));
-    sprite.emplace_back(Texture::LoadTexture("assets/imgs/player/Dead__003.png"));
-    sprite.emplace_back(Texture::LoadTexture("assets/imgs/player/Dead__004.png"));
-    sprite.emplace_back(Texture::LoadTexture("assets/imgs/player/Dead__005.png"));
-    sprite.emplace_back(Texture::LoadTexture("assets/imgs/player/Dead__006.png"));
-    sprite.emplace_back(Texture::LoadTexture("assets/imgs/player/Dead__007.png"));
-    sprite.emplace_back(Texture::LoadTexture("assets/imgs/player/Dead__008.png"));
-    sprite.emplace_back(Texture::LoadTexture("assets/imgs/player/Dead__009.png"));
-    
 }
 
 Player::~Player()
@@ -80,7 +56,7 @@ void Player::update()
 
 void Player::draw()
 {
-    Sprite::drawSprite(Assets::PLAYER, NULL, &g_playerRect, 2, true);
+    Sprite::drawSprite(Assets::IMAGE_PLAYER, NULL, &g_playerRect, 2, true);
 }
 
 void Player::move_up(const bool bRevert)

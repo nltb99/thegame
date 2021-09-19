@@ -84,6 +84,7 @@
 		BCF658D726F6280E00175CD9 /* Entity.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Entity.hpp; path = ECS/Entity.hpp; sourceTree = "<group>"; };
 		BCF658DD26F6757600175CD9 /* Transform.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Transform.hpp; path = ECS/Transform.hpp; sourceTree = "<group>"; };
 		BCF658DE26F6760800175CD9 /* Vector2D.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Vector2D.hpp; path = ECS/Vector2D.hpp; sourceTree = "<group>"; };
+		BCF658E526F7127B00175CD9 /* Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
 		BCF87B5126EA159800931C46 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		BCF87B5226EA159800931C46 /* GlobalHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalHeader.h; sourceTree = "<group>"; };
 		BCF87B5326EA159800931C46 /* Game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = "<group>"; };
@@ -171,6 +172,7 @@
 				BCF658D726F6280E00175CD9 /* Entity.hpp */,
 				BCF658DD26F6757600175CD9 /* Transform.hpp */,
 				BCF658DE26F6760800175CD9 /* Vector2D.hpp */,
+				BCF658E526F7127B00175CD9 /* Core.h */,
 			);
 			path = CPP;
 			sourceTree = "<group>";
