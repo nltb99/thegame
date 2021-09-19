@@ -35,6 +35,4 @@ void Assets::PreLoadImage()
 
 void Assets::PreLoadMusic()
 {
-//    this->loadMusic(chunkShot, "assets/sounds/shot.wav");
-//    this->loadChunk(chunkShot, "assets/sounds/shot.wav");
 }

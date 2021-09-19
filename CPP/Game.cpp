@@ -14,11 +14,17 @@
 #include "Sprite.hpp"
 #include "Assets.hpp"
 
+#include "ECS.hpp"
+#include "Entity.hpp"
+#include "Transform.hpp"
+#include "Vector2D.hpp"
+
 SDL_Renderer* Game::renderer = nullptr;
 
 std::unique_ptr<Player> player = nullptr;
 std::unique_ptr<Music> music = nullptr;
 std::unique_ptr<Assets> assets = nullptr;
+Entity* entity = nullptr;
 
 std::vector<Obstacle> Game::g_vObstacle_bucket;
 std::map<int, Game::SPRITE_ELEMENT> Game::g_mSprite_bucket;
@@ -42,6 +48,11 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
         window = SDL_CreateWindow(title, xpos, ypos, width, height, flags);
         renderer = SDL_CreateRenderer(window, -1, 0);
         
+        entity = new Entity();
+        entity->addComponent<Transform>(100, 100);
+        
+        std::cout << entity->getComponent<Transform>().position << std::endl;
+        
         music = std::make_unique<Music>();
         assets = std::make_unique<Assets>();
         player = std::make_unique<Player>("assets/imgs/player/Idle__000.png", 50, 100, 50, 100);
@@ -50,7 +61,6 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
         
         assets->PreLoadImage();
         
-
         g_bRunning = true;
     } else{
         g_bRunning = false;

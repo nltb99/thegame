@@ -8,13 +8,18 @@
 #ifndef Component_h
 #define Component_h
 
-
+class Entity;
 class Component {
 public:
+    Component() = default;
     virtual ~Component() = default;
-    virtual void init() {}
-    virtual void update() {}
+    
+    Entity* entity;
+    
+    virtual bool init() { return true;}
     virtual void draw() {}
+    virtual void update() {}
+    
 
 };
 #endif /* Component_h */

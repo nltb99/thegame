@@ -76,9 +76,14 @@
 		BCCAAA3C26F1F7DA00BDF1B4 /* Map.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Map.hpp; sourceTree = "<group>"; };
 		BCCAAA4626F220A900BDF1B4 /* Music.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Music.cpp; sourceTree = "<group>"; };
 		BCCAAA4726F220A900BDF1B4 /* Music.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Music.hpp; sourceTree = "<group>"; };
-		BCCECAEC26F19BA8002C5AFE /* Component.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Component.hpp; sourceTree = "<group>"; };
 		BCE3F38D26EC7112000FE76B /* Bullet.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Bullet.cpp; sourceTree = "<group>"; };
 		BCE3F38E26EC7112000FE76B /* Bullet.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Bullet.hpp; sourceTree = "<group>"; };
+		BCF658D126F6251900175CD9 /* ECS */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ECS; sourceTree = "<group>"; };
+		BCF658D226F6252C00175CD9 /* CPP */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CPP; sourceTree = "<group>"; };
+		BCF658D526F6258000175CD9 /* ECS.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = ECS.hpp; path = ECS/ECS.hpp; sourceTree = "<group>"; };
+		BCF658D726F6280E00175CD9 /* Entity.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Entity.hpp; path = ECS/Entity.hpp; sourceTree = "<group>"; };
+		BCF658DD26F6757600175CD9 /* Transform.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Transform.hpp; path = ECS/Transform.hpp; sourceTree = "<group>"; };
+		BCF658DE26F6760800175CD9 /* Vector2D.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Vector2D.hpp; path = ECS/Vector2D.hpp; sourceTree = "<group>"; };
 		BCF87B5126EA159800931C46 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		BCF87B5226EA159800931C46 /* GlobalHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalHeader.h; sourceTree = "<group>"; };
 		BCF87B5326EA159800931C46 /* Game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = "<group>"; };
@@ -140,6 +145,8 @@
 		BC3B6BDC26B72AD20075123C /* CPP */ = {
 			isa = PBXGroup;
 			children = (
+				BCF658D226F6252C00175CD9 /* CPP */,
+				BCF658D126F6251900175CD9 /* ECS */,
 				BCF87B5326EA159800931C46 /* Game.cpp */,
 				BCF87B5426EA159800931C46 /* Game.hpp */,
 				BCF87B5226EA159800931C46 /* GlobalHeader.h */,
@@ -152,7 +159,6 @@
 				BCE3F38E26EC7112000FE76B /* Bullet.hpp */,
 				BC39BCC426EDFFFC0084BD53 /* Obstacle.cpp */,
 				BC39BCC526EDFFFC0084BD53 /* Obstacle.hpp */,
-				BCCECAEC26F19BA8002C5AFE /* Component.hpp */,
 				BCCAAA3B26F1F7DA00BDF1B4 /* Map.cpp */,
 				BCCAAA3C26F1F7DA00BDF1B4 /* Map.hpp */,
 				BCCAAA4626F220A900BDF1B4 /* Music.cpp */,
@@ -161,6 +167,10 @@
 				BC37334826F4D93D006775EE /* Sprite.hpp */,
 				BCFCB15A26F5BEC8000B54FA /* Assets.cpp */,
 				BCFCB15B26F5BEC8000B54FA /* Assets.hpp */,
+				BCF658D526F6258000175CD9 /* ECS.hpp */,
+				BCF658D726F6280E00175CD9 /* Entity.hpp */,
+				BCF658DD26F6757600175CD9 /* Transform.hpp */,
+				BCF658DE26F6760800175CD9 /* Vector2D.hpp */,
 			);
 			path = CPP;
 			sourceTree = "<group>";
