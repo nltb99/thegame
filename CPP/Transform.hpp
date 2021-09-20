@@ -16,6 +16,16 @@
 class Transform {
 public:
     
+//    template<typename T>
+    Transform()
+    {
+        std::cout << "HELLO " << std::endl;
+    }
+    
+    virtual ~Transform()
+    {
+        
+    }
     
     struct COLLISION {
         bool boolean = false;
