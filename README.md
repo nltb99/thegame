@@ -1,3 +1,27 @@
+
+
+
+## Demo
+```console 
+
+$ git clone project
+
+# From Mac Terminal
+$ cd ./thegame
+
+# Copy all SDL2 framewords from "./libs" to "/Library/Frameworks"
+
+# Then
+$ chmod +x ./executable/CPP
+$ ./executable/CPP
+
+# Enjoy!!!
+
+```
+
+
+
+
 ```console 
                                                                                                         
                                                 bbbbbbbb                                                
