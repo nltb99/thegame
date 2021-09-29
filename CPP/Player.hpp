@@ -11,10 +11,8 @@
 #include "GlobalHeader.h"
 #include "Bullet.hpp"
 #include <vector>
-#include "Transform.hpp"
 
 class Player
-: public Transform
 {
 public:
     Player(const int PLAYER_X, const int PLAYER_Y, const int PLAYER_WIDTH, const int PLAYER_HEIGHT);
@@ -43,8 +41,6 @@ public:
     bool hold_left = 0, hold_right = 0, hold_up = 0, hold_down = 0;
     bool b_useJump = true;
     
-    
-    
     void update();
     void draw();
     void move_left(const bool bRevert);
@@ -52,10 +48,10 @@ public:
     void move_up(const bool bRevert);
     void move_down(const bool bRevert);
     
-//    void on_start_jump();
-//    void on_jump();
-//    void on_fall();
-//    struct COLLISION bCollision(const int playerX, const int playerY);
+    void on_start_jump();
+    void on_jump();
+    void on_fall();
+    struct COLLISION bCollision(const int playerX, const int playerY);
     void on_short();
     void update_bullet();
     void draw_bullet();

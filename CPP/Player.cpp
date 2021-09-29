@@ -45,11 +45,8 @@ void Player::update()
         g_playerRect.y += velocityY;
     } else {
         // * Jump Mode
-//        this->on_jump();
-//        this->on_fall();
-        
-//        Transform::on_jump(&g_playerRect);
-//        Transform::on_fall(&g_playerRect);
+        this->on_jump();
+        this->on_fall();
         velocityY = 0;
     }
 
@@ -67,10 +64,10 @@ void Player::update()
        g_playerRect.y -= velocityY;
     }
     
-//    if(this->bCollision(g_playerRect.x, g_playerRect.y).boolean) {
-//        g_playerRect.x -= velocityX;
-//        g_playerRect.y -= velocityY;
-//    }
+    if(this->bCollision(g_playerRect.x, g_playerRect.y).boolean) {
+        g_playerRect.x -= velocityX;
+        g_playerRect.y -= velocityY;
+    }
 
 }
 
@@ -107,63 +104,63 @@ void Player::move_right(const bool bRevert)
     }
 }
 
-//void Player::on_start_jump()
-//{
-//    if(jump_status == 0 && b_useJump){
-//        jump_status = 1;
-//        velocityY = 0;
-//        jumpStep = G_JUMP_HEIGHT;
-//    }
-//}
-//
-//void Player::on_jump()
-//{
-//    if(jump_status == 1){
-//        // * Jumping
-//        velocityY += -abs(jumpStep);
-//        g_playerRect.y += velocityY;
-//        jumpStep += G_JUMP_SPEED;
-//        if(jumpStep > 0) {
-//            jump_status = 2;
-//        }
-//    }
-//}
-//
-//void Player::on_fall()
-//{
-//    int adjustX = g_playerRect.x;
-//    int adjustY = g_playerRect.y;
-//
-//    if(hold_right) {
-//        adjustX -= G_MOVE_SPEED;
-//    } else if(hold_left){
-//        adjustX += G_MOVE_SPEED;
-//    }
-//
-//    if(hold_up) {
-//        adjustY += G_MOVE_SPEED;
-//    } else if(hold_down){
-//        adjustY -= G_MOVE_SPEED;
-//    }
-//
-//    if(jump_status == 2){
-//        // * Falling
-//        auto statusCollision = this->bCollision(adjustX, adjustY + abs(jumpStep));
-//        if(statusCollision.boolean){
-//            g_playerRect.y += statusCollision.colisionRect.y - PLAYER_HEIGHT - (g_playerRect.y + velocityY);
-//            jump_status = 0;
-//        } else{
-//            velocityY += abs(jumpStep);
-//            g_playerRect.y += velocityY;
-//            jumpStep += G_FALL_SPEED;
-//        }
-//    } else if(jump_status == 0){
-//        // * Gravity
-//        if(!this->bCollision(adjustX, adjustY + G_SPEED_GRAVITY).boolean){
-//            g_playerRect.y += G_SPEED_GRAVITY;
-//        }
-//    }
-//}
+void Player::on_start_jump()
+{
+    if(jump_status == 0 && b_useJump){
+        jump_status = 1;
+        velocityY = 0;
+        jumpStep = G_JUMP_HEIGHT;
+    }
+}
+
+void Player::on_jump()
+{
+    if(jump_status == 1){
+        // * Jumping
+        velocityY += -abs(jumpStep);
+        g_playerRect.y += velocityY;
+        jumpStep += G_JUMP_SPEED;
+        if(jumpStep > 0) {
+            jump_status = 2;
+        }
+    }
+}
+
+void Player::on_fall()
+{
+    int adjustX = g_playerRect.x;
+    int adjustY = g_playerRect.y;
+
+    if(hold_right) {
+        adjustX -= G_MOVE_SPEED;
+    } else if(hold_left){
+        adjustX += G_MOVE_SPEED;
+    }
+
+    if(hold_up) {
+        adjustY += G_MOVE_SPEED;
+    } else if(hold_down){
+        adjustY -= G_MOVE_SPEED;
+    }
+
+    if(jump_status == 2){
+        // * Falling
+        auto statusCollision = this->bCollision(adjustX, adjustY + abs(jumpStep));
+        if(statusCollision.boolean){
+            g_playerRect.y += statusCollision.colisionRect.y - PLAYER_HEIGHT - (g_playerRect.y + velocityY);
+            jump_status = 0;
+        } else{
+            velocityY += abs(jumpStep);
+            g_playerRect.y += velocityY;
+            jumpStep += G_FALL_SPEED;
+        }
+    } else if(jump_status == 0){
+        // * Gravity
+        if(!this->bCollision(adjustX, adjustY + G_SPEED_GRAVITY).boolean){
+            g_playerRect.y += G_SPEED_GRAVITY;
+        }
+    }
+}
 
 void Player::on_short()
 {
@@ -193,26 +190,26 @@ void Player::on_short()
     g_vBullet_bucket.emplace_back(*bullet);
 }
 
-//Player::COLLISION Player::bCollision(const int playerX, const int playerY)
-//{
-//    COLLISION ret;
-//    for(size_t i = 0; i < Game::g_vObstacle_bucket.size(); ++i){
-//        float objectX = Game::g_vObstacle_bucket[i].rect.x;
-//        float objectY = Game::g_vObstacle_bucket[i].rect.y;
-//        float objectWidth = Game::g_vObstacle_bucket[i].rect.w;
-//        float objectHeight = Game::g_vObstacle_bucket[i].rect.h;
-//
-//        if(playerX >= objectX - PLAYER_WIDTH + 1 &&
-//            playerX <= objectX + objectWidth - 1 &&
-//            playerY >= objectY - PLAYER_HEIGHT + 1 &&
-//            playerY <= objectY + objectHeight - 1
-//           ){
-//            ret.boolean = true;
-//            ret.colisionRect = Game::g_vObstacle_bucket[i].rect;
-//        }
-//    }
-//    return ret;
-//}
+Player::COLLISION Player::bCollision(const int playerX, const int playerY)
+{
+    COLLISION ret;
+    for(size_t i = 0; i < Game::g_vObstacle_bucket.size(); ++i){
+        float objectX = Game::g_vObstacle_bucket[i].rect.x;
+        float objectY = Game::g_vObstacle_bucket[i].rect.y;
+        float objectWidth = Game::g_vObstacle_bucket[i].rect.w;
+        float objectHeight = Game::g_vObstacle_bucket[i].rect.h;
+
+        if(playerX >= objectX - PLAYER_WIDTH + 1 &&
+            playerX <= objectX + objectWidth - 1 &&
+            playerY >= objectY - PLAYER_HEIGHT + 1 &&
+            playerY <= objectY + objectHeight - 1
+           ){
+            ret.boolean = true;
+            ret.colisionRect = Game::g_vObstacle_bucket[i].rect;
+        }
+    }
+    return ret;
+}
 
 
 

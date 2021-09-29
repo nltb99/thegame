@@ -89,8 +89,6 @@
 		BCF658FA26F718C900175CD9 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
 		BCF658FB26F718C900175CD9 /* Assets.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Assets.hpp; sourceTree = "<group>"; };
 		BCF658FC26F718C900175CD9 /* Sprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sprite.cpp; sourceTree = "<group>"; };
-		BCF6590C26F7195100175CD9 /* helper */ = {isa = PBXFileReference; lastKnownFileType = folder; path = helper; sourceTree = "<group>"; };
-		BCF6590F26F7A34A00175CD9 /* Transform.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Transform.hpp; sourceTree = "<group>"; };
 		BCF87B8A26EA1C7F00931C46 /* Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Test; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCF87B8C26EA1C7F00931C46 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		BCF87B9726EA1D1C00931C46 /* Test.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Test.entitlements; sourceTree = "<group>"; };
@@ -142,7 +140,6 @@
 		BC3B6BDC26B72AD20075123C /* CPP */ = {
 			isa = PBXGroup;
 			children = (
-				BCF6590C26F7195100175CD9 /* helper */,
 				BCF658F126F718C900175CD9 /* Assets.cpp */,
 				BCF658FB26F718C900175CD9 /* Assets.hpp */,
 				BCF658F026F718C900175CD9 /* Bullet.cpp */,
@@ -164,7 +161,6 @@
 				BCF658F526F718C900175CD9 /* Sprite.hpp */,
 				BCF658ED26F718C800175CD9 /* Texture.cpp */,
 				BCF658F826F718C900175CD9 /* Texture.hpp */,
-				BCF6590F26F7A34A00175CD9 /* Transform.hpp */,
 			);
 			path = CPP;
 			sourceTree = "<group>";
@@ -476,16 +472,16 @@
 		BCF87B8F26EA1C7F00931C46 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_ENTITLEMENTS = Test/Test.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7ZHQZR3FTK;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(LOCAL_LIBRARY_DIR)/Frameworks",
-					"$(PROJECT_DIR)/CPP/libs",
+					"$(inherited)/**",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks/**",
+					"$(PROJECT_DIR)/libs/**",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.test;
@@ -496,16 +492,16 @@
 		BCF87B9026EA1C7F00931C46 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_ENTITLEMENTS = Test/Test.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7ZHQZR3FTK;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(LOCAL_LIBRARY_DIR)/Frameworks",
-					"$(PROJECT_DIR)/CPP/libs",
+					"$(inherited)/**",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks/**",
+					"$(PROJECT_DIR)/libs/**",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.test;
